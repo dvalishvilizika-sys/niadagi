@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ფუსფუსა სახელოსნო — ნიადაგის ბინადრები</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Decorative Floating Bioluminescent Soil Particles -->
+  <div class="bg-decor" id="bgDecor"></div>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="brand-box">
+      <img src="logo.png" alt="ფუსფუსა სახელოსნო" class="brand-logo" />
+      <div class="brand-title">
+        <h1>ფუსფუსა სახელოსნო</h1>
+        <p>ინტერაქტიული ექსპედიცია: ნიადაგის ბინადრები</p>
+      </div>
+    </div>
+
+    <nav class="stage-nav" aria-label="ეტაპების ნავიგაცია">
+      <button class="stage-btn active" data-stage="1" onclick="goToStage(1)">
+        <span class="stage-num">1</span> სახელოსნო
+      </button>
+      <button class="stage-btn" data-stage="2" onclick="goToStage(2)">
+        <span class="stage-num">2</span> აღმოჩენა
+      </button>
+      <button class="stage-btn" data-stage="3" onclick="goToStage(3)">
+        <span class="stage-num">3</span> მიწისქვეშა ქალაქი
+      </button>
+      <button class="stage-btn" data-stage="4" onclick="goToStage(4)">
+        <span class="stage-num">4</span> მშრალი თუ ნესტიანი?
+      </button>
+      <button class="stage-btn" data-stage="5" onclick="goToStage(5)">
+        <span class="stage-num">5</span> ვიქტორინა
+      </button>
+    </nav>
+
+    <div class="header-controls">
+      <div class="score-pill" title="დაგროვებული ვარსკვლავები">
+        <span>⭐</span>
+        <span id="starCount">0</span>
+      </div>
+      <button class="icon-btn" id="soundToggleBtn" onclick="toggleSound()" title="ხმოვანი ეფექტების ჩართვა/გამორთვა">
+        🔊
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- ==================== STAGE 1: INTRO ==================== -->
+    <section class="stage-section active" id="stage-1">
+      <div class="stage-card">
+        <div class="split-grid">
+          <!-- Large Full-Height Video 1 Column -->
+          <div class="video-panel">
+            <div class="video-frame-wrapper">
+              <video id="video-1" src="1.mp4" controls playsinline preload="metadata"></video>
+            </div>
+            <div class="video-controls-bar">
+              <button class="vid-btn primary" onclick="playStageVideo(1)">▶ ვიდეოს ჩართვა</button>
+              <button class="vid-btn secondary" onclick="replayStageVideo(1)">↺ თავიდან</button>
+            </div>
+          </div>
+
+          <!-- Compact, Rich Interactive Intro Column -->
+          <div class="stage-right-col">
+            <div class="stage-header-banner">
+              <div class="stage-header-left">
+                <span class="stage-badge">ეტაპი 1 • მომზადება</span>
+                <h2>მოგესალმებათ ეკო და ბითი!</h2>
+              </div>
+              <div class="stage-progress-counter">
+                ზურგჩანთა: <span id="toolsPickedCount">0</span> / 6 ნივთი
+              </div>
+            </div>
+
+            <div class="mascots-banner">
+              <div class="mascot-avatars">
+                <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
+                <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
+              </div>
+              <div class="mascot-speech">
+                <h3>მზად ხარ მიწისქვეშა სამყაროში სამოგზაუროდ? 🌱🤖</h3>
+                <p id="stage1Speech">
+                  ჯერ ჩართე მისასალმებელი ვიდეო, შემდეგ კი მოვემზადოთ ექსპედიციისთვის: აირჩიე მიწის საკვლევი 6 სწორი ხელსაწყო!
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Explorer Backpack Tool Selection with Distractors -->
+            <div class="tools-selector">
+              <div class="section-mini-header">
+                <h4>🎒 ჩაალაგე მკვლევრის ზურგჩანთა! აირჩიე მხოლოდ 6 საჭირო ხელსაწყო (ფრთხილად, 3 ზედმეტია!):</h4>
+              </div>
+              <div class="tool-options">
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'lupa')">
+                  <span class="tool-emoji">🔍</span>
+                  <div class="tool-meta">
+                    <strong>ჭკვიანი ლუპა</strong>
+                    <span>პატარა ბინადრების გასადიდებლად!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'telescope')">
+                  <span class="tool-emoji">🔭</span>
+                  <div class="tool-meta">
+                    <strong>ტელესკოპი</strong>
+                    <span>ცის საყურებლადაა, მიწაში არ გვჭირდება!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'shovel')">
+                  <span class="tool-emoji">
+                    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true" style="transform: rotate(28deg);">
+                      <!-- Black D-Handle -->
+                      <path d="M24 5 H40 C42 5 43 7 42 9 L37 18 C36 20 34 21 32 21 C30 21 28 20 27 18 L22 9 C21 7 22 5 24 5 Z" fill="#212121"/>
+                      <path d="M26.5 8.5 H37.5 L34.5 15.5 H29.5 Z" fill="#ffffff"/>
+                      <rect x="29" y="18" width="6" height="5" rx="1" fill="#212121"/>
+                      <!-- Red Shaft -->
+                      <rect x="29.5" y="22" width="5" height="19" fill="#d32f2f"/>
+                      <rect x="30.5" y="22" width="1.5" height="19" fill="#ef5350"/>
+                      <!-- Metal Collar & Spade Blade -->
+                      <rect x="29" y="39" width="6" height="5" rx="1" fill="#616161"/>
+                      <path d="M20 42 L32 44 L44 42 L43 51 C42.5 56.5 37.5 60.5 32 62 C26.5 60.5 21.5 56.5 21 51 Z" fill="#757575" stroke="#424242" stroke-width="1.5"/>
+                      <!-- Blade Highlight & Center Ridge -->
+                      <path d="M32 40 V57" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M23 44 L31 45.5 V58 C26.5 56.5 23.5 53.5 23 49.5 Z" fill="#9e9e9e" opacity="0.55"/>
+                    </svg>
+                  </span>
+                  <div class="tool-meta">
+                    <strong>პატარა ნიჩაბი</strong>
+                    <span>მიწის ფრთხილად გასათხრელად!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'detector')">
+                  <span class="tool-emoji">📡</span>
+                  <div class="tool-meta">
+                    <strong>მიწისქვეშა დეტექტორი</strong>
+                    <span>სოროებისა და ხმების საპოვნელად!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'diary')">
+                  <span class="tool-emoji">📓</span>
+                  <div class="tool-meta">
+                    <strong>საველე დღიური</strong>
+                    <span>აღმოჩენების ჩასანიშნად!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'fins')">
+                  <span class="tool-emoji">🤿</span>
+                  <div class="tool-meta">
+                    <strong>საცურაო აღჭურვილობა</strong>
+                    <span>წყალში საცურაოდაა, მიწაში არა!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'flashlight')">
+                  <span class="tool-emoji">🔦</span>
+                  <div class="tool-meta">
+                    <strong>ფარანი სოროებისთვის</strong>
+                    <span>ბნელი გვირაბების გასანათებლად!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'horn')">
+                  <span class="tool-emoji">📢</span>
+                  <div class="tool-meta">
+                    <strong>ხმამაღალი საყვირი</strong>
+                    <span>ხმაური ბინადრებს დააფრთხობს!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'gloves')">
+                  <span class="tool-emoji">🧤</span>
+                  <div class="tool-meta">
+                    <strong>დამცავი ხელთათმანი</strong>
+                    <span>მიწასთან უსაფრთხოდ სამუშაოდ!</span>
+                  </div>
+                  <span class="tool-badge"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="stage-footer-nav">
+              <span class="hint-note">
+                💡 შეარჩიე 6 საჭირო ხელსაწყო და გადადი შემდეგ ეტაპზე
+              </span>
+              <button class="nav-action-btn next-btn" onclick="goToStage(2)">
+                შემდეგი ეტაპი: პირველი აღმოჩენა ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STAGE 2: FIRST DISCOVERY & SCANNER ==================== -->
+    <section class="stage-section" id="stage-2">
+      <div class="stage-card">
+        <div class="split-grid">
+          <!-- Large Full-Height Video 2 Column -->
+          <div class="video-panel">
+            <div class="video-frame-wrapper">
+              <video id="video-2" src="2.mp4" controls playsinline preload="metadata"></video>
+            </div>
+            <div class="video-controls-bar">
+              <button class="vid-btn primary" onclick="playStageVideo(2)">▶ ვიდეოს ჩართვა</button>
+              <button class="vid-btn secondary" onclick="replayStageVideo(2)">↺ თავიდან</button>
+            </div>
+          </div>
+
+          <!-- Scanner Activity Column -->
+          <div class="stage-right-col">
+            <div class="stage-header-banner">
+              <div class="stage-header-left">
+                <span class="stage-badge">ეტაპი 2 • პირველი აღმოჩენა</span>
+                <h2>ვინ იმალება ნიადაგის ქვეშ?</h2>
+              </div>
+              <div class="stage-progress-counter">
+                ნაპოვნია: <span id="foundCount">0</span> / 10 ბინადარი
+              </div>
+            </div>
+
+            <div class="mascots-banner">
+              <div class="mascot-avatars">
+                <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
+                <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
+              </div>
+              <div class="mascot-speech">
+                <h3>🔍 მისია: გამოიყენე ბითის სკანერი!</h3>
+                <p>
+                  უყურე ვიდეოს, შემდეგ კი დააწკაპუნე ნიადაგზე მანათობელ წერტილებს (<strong>?</strong>), რათა აღმოაჩინო მიწაში დამალული 10 ბინადარი!
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Soil Scanner + Field Diary Split -->
+            <div class="scanner-diary-grid">
+              <div class="scanner-scene" id="scannerScene" onmousemove="moveScannerLens(event)">
+                <div class="grass-strip"></div>
+                <div class="scanner-lens" id="scannerLens"></div>
+
+                <!-- 10 Hotspots -->
+                <div class="scanner-hotspot" style="top: 34%; left: 86%;" onclick="discoverCreature(this, 0)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji"><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-photo-icon" /></span>
+                    <span class="creature-label">ჭიაყელა</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 25%; left: 14%;" onclick="discoverCreature(this, 1)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🐌</span>
+                    <span class="creature-label">ლოკოკინა</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 52%; left: 46%;" onclick="discoverCreature(this, 2)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🐜</span>
+                    <span class="creature-label">ჭიანჭველა</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 80%; left: 18%;" onclick="discoverCreature(this, 3)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🐛</span>
+                    <span class="creature-label">ხოჭოს მატლი</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 80%; left: 82%;" onclick="discoverCreature(this, 4)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji"><img src="თხუნელა.png" alt="თხუნელა" class="worm-photo-icon" /></span>
+                    <span class="creature-label">თხუნელა</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 54%; left: 18%;" onclick="discoverCreature(this, 5)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">
+                      <svg viewBox="0 0 64 40" width="32" height="22" aria-hidden="true">
+                        <!-- Millipede / Centipede Legs -->
+                        <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
+                          <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
+                          <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
+                          <line x1="32" y1="22" x2="30" y2="32"/><line x1="35" y1="22" x2="34" y2="32"/>
+                          <line x1="42" y1="23" x2="40" y2="33"/><line x1="45" y1="23" x2="44" y2="33"/>
+                          <line x1="51" y1="24" x2="50" y2="34"/><line x1="54" y1="24" x2="55" y2="34"/>
+                        </g>
+                        <!-- Segmented Body -->
+                        <circle cx="13" cy="20" r="6" fill="#bf360c"/>
+                        <circle cx="22" cy="18" r="6.5" fill="#d84315"/>
+                        <circle cx="32" cy="17" r="6.5" fill="#e64a19"/>
+                        <circle cx="42" cy="18" r="6.5" fill="#d84315"/>
+                        <circle cx="51" cy="19" r="7" fill="#bf360c"/>
+                        <!-- Antennae & Eye -->
+                        <path d="M56 15 Q61 9 63 11" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M57 18 Q62 15 63 18" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
+                      </svg>
+                    </span>
+                    <span class="creature-label">მრავალფეხა</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 55%; left: 74%;" onclick="discoverCreature(this, 6)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🦗</span>
+                    <span class="creature-label">მიწის კალია / კოკორი</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 27%; left: 39%;" onclick="discoverCreature(this, 7)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🐍</span>
+                    <span class="creature-label">მიწის მცოცავი გველი</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 78%; left: 50%;" onclick="discoverCreature(this, 8)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🐭</span>
+                    <span class="creature-label">მინდვრის თაგვი</span>
+                  </div>
+                </div>
+
+                <div class="scanner-hotspot" style="top: 26%; left: 63%;" onclick="discoverCreature(this, 9)">
+                  <span class="spot-question">?</span>
+                  <div class="spot-creature">
+                    <span class="creature-emoji">🕷️</span>
+                    <span class="creature-label">მიწის ობობა</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Field Diary Notebook Panel -->
+              <aside class="field-diary-card" aria-label="ეკოს საველე დღიური">
+                <div class="diary-header">
+                  <span class="diary-title">📓 საველე დღიური</span>
+                  <span class="diary-sub">✍️ აღმოჩენების სია</span>
+                </div>
+                <div class="diary-entries-list" id="diaryEntriesList">
+                  <div class="diary-line" data-slot="0"><span class="line-num">1.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="1"><span class="line-num">2.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="2"><span class="line-num">3.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="3"><span class="line-num">4.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="4"><span class="line-num">5.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="5"><span class="line-num">6.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="6"><span class="line-num">7.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="7"><span class="line-num">8.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="8"><span class="line-num">9.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                  <div class="diary-line" data-slot="9"><span class="line-num">10.</span><span class="line-placeholder">• • • • • • • • •</span></div>
+                </div>
+              </aside>
+            </div>
+
+            <!-- Discovery Info Card -->
+            <div class="discovery-info-card" id="discoveryInfoCard">
+              <div class="discovery-icon-big" id="discoveryIcon">🔎</div>
+              <div>
+                <h4 id="discoveryTitle">
+                  დააწკაპუნე ნიადაგში მოციმციმე წრეებს!
+                </h4>
+                <p id="discoveryText">
+                  ეკო და ბითი მოგიყვებიან თითოეული აღმოჩენილი ბინადრის საიდუმლოს.
+                </p>
+              </div>
+            </div>
+
+            <div class="stage-footer-nav">
+              <button class="nav-action-btn prev-btn" onclick="goToStage(1)">⬅ უკან</button>
+              <button class="nav-action-btn next-btn" onclick="goToStage(3)">
+                შემდეგი ეტაპი: მიწისქვეშა ქალაქი ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STAGE 3: UNDERGROUND CITY ==================== -->
+    <section class="stage-section" id="stage-3">
+      <div class="stage-card">
+        <div class="split-grid">
+          <!-- Large Full-Height Video 3 Column -->
+          <div class="video-panel">
+            <div class="video-frame-wrapper">
+              <video id="video-3" src="3.mp4" controls playsinline preload="metadata"></video>
+            </div>
+            <div class="video-controls-bar">
+              <button class="vid-btn primary" onclick="playStageVideo(3)">▶ ვიდეოს ჩართვა</button>
+              <button class="vid-btn secondary" onclick="replayStageVideo(3)">↺ თავიდან</button>
+            </div>
+          </div>
+
+          <!-- Underground City Activity Column -->
+          <div class="stage-right-col">
+            <div class="stage-header-banner">
+              <div class="stage-header-left">
+                <span class="stage-badge">ეტაპი 3 • მიწისქვეშა ქალაქი</span>
+                <h2>ვინ სად ცხოვრობს?</h2>
+              </div>
+              <div class="stage-progress-counter">
+                <span id="cityPlacedCount">0</span> / 7
+              </div>
+            </div>
+
+            <!-- Purely Visual Draggable Animal Tokens (Shuffled Order) -->
+            <div class="animal-tray visual-only-tray" id="cityAnimalTray">
+              <div class="animal-token visual-token" draggable="true" data-animal="mole" title="თხუნელა" ondragstart="dragCityAnimal(event, 'mole')" onclick="selectCityAnimal(this, 'mole')">
+                <span><img src="თხუნელა.png" alt="თხუნელა" class="worm-token-img" /></span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="snail" title="ლოკოკინა" ondragstart="dragCityAnimal(event, 'snail')" onclick="selectCityAnimal(this, 'snail')">
+                <span>🐌</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="ants" title="ჭიანჭველა" ondragstart="dragCityAnimal(event, 'ants')" onclick="selectCityAnimal(this, 'ants')">
+                <span>🐜</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="mouse" title="მინდვრის თაგვი" ondragstart="dragCityAnimal(event, 'mouse')" onclick="selectCityAnimal(this, 'mouse')">
+                <span>🐭</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="worm" title="ჭიაყელა" ondragstart="dragCityAnimal(event, 'worm')" onclick="selectCityAnimal(this, 'worm')">
+                <span><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-token-img" /></span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="spider" title="მიწის ობობა" ondragstart="dragCityAnimal(event, 'spider')" onclick="selectCityAnimal(this, 'spider')">
+                <span>🕷️</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="larva" title="ხოჭოს მატლი" ondragstart="dragCityAnimal(event, 'larva')" onclick="selectCityAnimal(this, 'larva')">
+                <span>🐛</span>
+              </div>
+            </div>
+
+            <!-- Interactive 3-Column Photo Board (ქალაქი.jpg) — Visual Only -->
+            <div class="city-photo-board">
+              <img src="ქალაქი.jpg" alt="მიწისქვეშა ქალაქის ფენები" class="city-bg-img" draggable="false" />
+              <div class="city-zones-overlay">
+                <!-- Zone 1: Surface & Leaf Litter -->
+                <div
+                  class="city-photo-zone"
+                  data-zone="surface"
+                  ondragover="allowCityDrop(event, this)"
+                  ondragleave="leaveCityDrop(this)"
+                  ondrop="dropOnCityZone(event, this, 'surface')"
+                  onclick="placeInCityZone(this, 'surface')"
+                >
+                  <div class="zone-placed-badges" id="zoneBadges-surface"></div>
+                </div>
+
+                <!-- Zone 2: Soft Soil & Root Network -->
+                <div
+                  class="city-photo-zone"
+                  data-zone="roots"
+                  ondragover="allowCityDrop(event, this)"
+                  ondragleave="leaveCityDrop(this)"
+                  ondrop="dropOnCityZone(event, this, 'roots')"
+                  onclick="placeInCityZone(this, 'roots')"
+                >
+                  <div class="zone-placed-badges" id="zoneBadges-roots"></div>
+                </div>
+
+                <!-- Zone 3: Deep Underground Burrow -->
+                <div
+                  class="city-photo-zone"
+                  data-zone="deep"
+                  ondragover="allowCityDrop(event, this)"
+                  ondragleave="leaveCityDrop(this)"
+                  ondrop="dropOnCityZone(event, this, 'deep')"
+                  onclick="placeInCityZone(this, 'deep')"
+                >
+                  <div class="zone-placed-badges" id="zoneBadges-deep"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage-footer-nav">
+              <button class="nav-action-btn prev-btn" onclick="goToStage(2)">⬅ უკან</button>
+              <button class="nav-action-btn next-btn" onclick="goToStage(4)">
+                შემდეგი ეტაპი: მშრალი თუ ნესტიანი? ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STAGE 4: DRY VS MOIST SOIL ==================== -->
+    <section class="stage-section" id="stage-4">
+      <div class="stage-card">
+        <div class="split-grid">
+          <!-- Large Full-Height Video 4 Column -->
+          <div class="video-panel">
+            <div class="video-frame-wrapper">
+              <video id="video-4" src="4.mp4" controls playsinline preload="metadata"></video>
+            </div>
+            <div class="video-controls-bar">
+              <button class="vid-btn primary" onclick="playStageVideo(4)">▶ ვიდეოს ჩართვა</button>
+              <button class="vid-btn secondary" onclick="replayStageVideo(4)">↺ თავიდან</button>
+            </div>
+          </div>
+
+          <!-- Weather & Soil Moisture Simulator Column -->
+          <div class="stage-right-col">
+            <div class="stage-header-banner">
+              <div class="stage-header-left">
+                <span class="stage-badge">ეტაპი 4 • სიმულატორი</span>
+                <h2>ამინდისა და ტენიანობის სიმულატორი ☀️🌧️</h2>
+              </div>
+              <div class="stage-progress-counter">
+                აღმოჩენილია: <span id="sortedCount">0</span> / 7
+              </div>
+            </div>
+
+            <div class="mascots-banner">
+              <div class="mascot-avatars">
+                <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
+                <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
+              </div>
+              <div class="mascot-speech">
+                <h3>☀️🌧️ შეცვალე ამინდი და დააწკაპუნე გამოჩენილ ბინადრებს!</h3>
+                <p id="sortFeedbackText">
+                  ჩართე ხან <strong>☀️ მზიანი ამინდი</strong>, ხან <strong>🌧️ წვიმიანი ამინდი</strong> და დააწკაპუნე ნიადაგში გამოჩენილ ბინადრებს!
+                </p>
+              </div>
+            </div>
+
+            <!-- Weather Mode Switcher Buttons -->
+            <div class="weather-controls-bar">
+              <button class="weather-mode-btn sun-btn active" id="btnWeatherDry" onclick="setWeatherMode('dry')">
+                <span class="w-icon">☀️</span>
+                <div>
+                  <strong>მზიანი ამინდი</strong>
+                  <span>მშრალი და ფხვიერი მიწა</span>
+                </div>
+              </button>
+              <button class="weather-mode-btn rain-btn" id="btnWeatherMoist" onclick="setWeatherMode('moist')">
+                <span class="w-icon">🌧️</span>
+                <div>
+                  <strong>წვიმიანი ამინდი</strong>
+                  <span>გრილი და ნესტიანი გარემო</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Interactive Animated Weather & Soil Scene -->
+            <div class="weather-sim-scene mode-dry" id="weatherSimScene">
+              <!-- Sky Layer -->
+              <div class="sim-sky">
+                <div class="sim-sun">☀️</div>
+                <div class="sim-clouds">
+                  <span class="cloud-icon">🌧️</span>
+                  <span class="cloud-icon">☁️</span>
+                  <span class="cloud-icon">🌧️</span>
+                </div>
+                <div class="sim-raindrops">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="weather-state-pill" id="weatherStatePill">
+                  ☀️ მიწა გამშრალი და ფხვიერია — დააწკაპუნე ბინადრებს!
+                </div>
+              </div>
+
+              <!-- Ground Surface Layer (Cracks in Dry Mode / Wet Leaves in Moist Mode) -->
+              <div class="sim-surface-decor"></div>
+
+              <!-- DRY SOIL CREATURES (Visible in Sunny Mode) -->
+              <div class="sim-creatures-layer dry-creatures-layer" id="dryCreaturesLayer">
+                <button class="sim-creature-spot" style="top: 48%; left: 24%;" data-cid="black_beetle" onclick="observeSimCreature(this, 'black_beetle')">
+                  <span class="sim-c-avatar">
+                    <svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true">
+                      <g stroke="#212121" stroke-width="2.2" stroke-linecap="round">
+                        <line x1="5" y1="13" x2="12" y2="16"/><line x1="3" y1="20" x2="11" y2="20"/><line x1="5" y1="27" x2="12" y2="24"/>
+                        <line x1="31" y1="13" x2="24" y2="16"/><line x1="33" y1="20" x2="25" y2="20"/><line x1="31" y1="27" x2="24" y2="24"/>
+                        <path d="M15 8 Q12 3 9 5" fill="none"/><path d="M21 8 Q24 3 27 5" fill="none"/>
+                      </g>
+                      <ellipse cx="18" cy="10" rx="5" ry="3.8" fill="#212121"/>
+                      <ellipse cx="18" cy="21" rx="8" ry="10" fill="#37474f" stroke="#111" stroke-width="1.5"/>
+                      <line x1="18" y1="12" x2="18" y2="30" stroke="#90a4ae" stroke-width="1.3"/>
+                    </svg>
+                  </span>
+                  <span class="sim-c-name">შავი მიწის ხოჭო</span>
+                  <span class="sim-c-check"></span>
+                </button>
+
+                <button class="sim-creature-spot" style="top: 66%; left: 53%;" data-cid="field_beetle" onclick="observeSimCreature(this, 'field_beetle')">
+                  <span class="sim-c-avatar"><img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-photo-icon" /></span>
+                  <span class="sim-c-name">მინდვრის ხოჭო</span>
+                  <span class="sim-c-check"></span>
+                </button>
+
+                <button class="sim-creature-spot" style="top: 52%; left: 78%;" data-cid="ants_dry" onclick="observeSimCreature(this, 'ants_dry')">
+                  <span class="sim-c-avatar">🐜</span>
+                  <span class="sim-c-name">ჭიანჭველა</span>
+                  <span class="sim-c-check"></span>
+                </button>
+              </div>
+
+              <!-- MOIST SOIL CREATURES (Visible in Rainy Mode) -->
+              <div class="sim-creatures-layer moist-creatures-layer" id="moistCreaturesLayer">
+                <button class="sim-creature-spot" style="top: 38%; left: 20%;" data-cid="snail_moist" onclick="observeSimCreature(this, 'snail_moist')">
+                  <span class="sim-c-avatar">🐌</span>
+                  <span class="sim-c-name">ლოკოკინა</span>
+                  <span class="sim-c-check"></span>
+                </button>
+
+                <button class="sim-creature-spot" style="top: 72%; left: 28%;" data-cid="worm_moist" onclick="observeSimCreature(this, 'worm_moist')">
+                  <span class="sim-c-avatar"><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-photo-icon" /></span>
+                  <span class="sim-c-name">წვიმის ჭია</span>
+                  <span class="sim-c-check"></span>
+                </button>
+
+                <button class="sim-creature-spot" style="top: 48%; left: 54%;" data-cid="hedgehog_moist" onclick="observeSimCreature(this, 'hedgehog_moist')">
+                  <span class="sim-c-avatar">🦔</span>
+                  <span class="sim-c-name">ზღარბი</span>
+                  <span class="sim-c-check"></span>
+                </button>
+
+                <button class="sim-creature-spot" style="top: 72%; left: 76%;" data-cid="mouse_moist" onclick="observeSimCreature(this, 'mouse_moist')">
+                  <span class="sim-c-avatar">🐭</span>
+                  <span class="sim-c-name">მინდვრის თაგვი</span>
+                  <span class="sim-c-check"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="stage-footer-nav">
+              <button class="nav-action-btn prev-btn" onclick="goToStage(3)">⬅ უკან</button>
+              <button class="nav-action-btn next-btn" onclick="goToStage(5)">
+                შემდეგი ეტაპი: შემაჯამებელი ვიქტორინა ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STAGE 5: FINAL QUIZ & DIPLOMA ==================== -->
+    <section class="stage-section" id="stage-5">
+      <div class="stage-card">
+        <div class="quiz-box">
+          <div class="stage-header-banner">
+            <div class="stage-header-left">
+              <span class="stage-badge">ეტაპი 5 • ფინალი</span>
+              <h2>ფუსფუსა სახელოსნოს შემაჯამებელი ვიქტორინა</h2>
+            </div>
+          </div>
+
+          <div class="mascots-banner">
+            <div class="mascot-avatars">
+              <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
+              <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
+            </div>
+            <div class="mascot-speech">
+              <h3>🏆 შეამოწმე შენი ცოდნა ეკოსა და ბითისთან ერთად!</h3>
+              <p id="quizHelperText">
+                უპასუხე 6 შეკითხვას ვიდეოების შინაარსიდან და მიიღე „ნიადაგის ნორჩი მკვლევრის“ საპატიო სიგელი!
+              </p>
+            </div>
+          </div>
+
+          <div id="quizContainer">
+            <div class="quiz-progress" id="quizProgressText">შეკითხვა 1 / 6</div>
+            <div class="quiz-question-card">
+              <h3 id="quizQuestionTitle">იტვირთება...</h3>
+              <div class="quiz-options" id="quizOptionsBox"></div>
+            </div>
+          </div>
+
+          <!-- Final Certificate -->
+          <div class="certificate-card" id="certificateCard">
+            <div class="cert-mascots">
+              <img src="დედამიწა.png" alt="ეკო" />
+              <img src="logo.png" alt="ფუსფუსა სახელოსნო" class="cert-logo" />
+              <img src="ტექნოლოგია.png" alt="ბითი" />
+            </div>
+            <h2 style="color: #1b5e20; font-size: 1.5rem; margin-bottom: 8px;">
+              🎉 გილოცავთ! შენ გახდი „ნიადაგის ნორჩი მკვლევარი“!
+            </h2>
+            <p style="font-size: 1rem; color: #37474f; max-width: 580px; margin: 0 auto 12px;">
+              შენ ეკოსა და ბითისთან ერთად წარმატებით გამოიკვლიე მიწისქვეშა ქალაქი, გაიცანი მისი ბინადრები და შეისწავლე მათი საცხოვრებელი გარემო!
+            </p>
+            <div style="font-size: 1.25rem; font-weight: 800; color: #e65100; margin-bottom: 14px;">
+              დაგროვებული ვარსკვლავები: ⭐ <span id="finalStarScore">0</span>
+            </div>
+            <button class="nav-action-btn next-btn" onclick="restartAdventure()">
+              🔄 თავგადასავლის თავიდან დაწყება
+            </button>
+          </div>
+
+          <div class="stage-footer-nav">
+            <button class="nav-action-btn prev-btn" onclick="goToStage(4)">⬅ უკან</button>
+            <button class="nav-action-btn next-btn" onclick="goToStage(1)">🏠 მთავარ ეკრანზე დაბრუნება</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
