@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>სერთიფიკატი — ნიადაგის ბინადრების მკვლევარები</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Sylfaen', 'BPG Arial', system-ui, sans-serif;
+      background: #e8f5e9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #263238;
+    }
+
+    .cert-sheet {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(135deg, #fffef2 0%, #e8f5e9 100%);
+      border: 6px solid #2e7d32;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+    }
+
+    .cert-inner {
+      border: 3px dashed #66bb6a;
+      border-radius: 18px;
+      padding: 28px 36px;
+      background: rgba(255, 255, 255, 0.78);
+      text-align: center;
+    }
+
+    .cert-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .cert-mascot {
+      width: 110px;
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .cert-center-head {
+      flex: 1;
+    }
+
+    .cert-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid #2e7d32;
+      object-fit: cover;
+      background: #fff;
+      margin-bottom: 8px;
+    }
+
+    .cert-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #1b5e20;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .cert-subtitle-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffb300, #fb8c00);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.35rem;
+      padding: 8px 28px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(251, 140, 0, 0.3);
+    }
+
+    .cert-recipient-section {
+      margin: 26px auto 18px;
+      max-width: 620px;
+    }
+
+    .cert-recipient-label {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #37474f;
+      margin-bottom: 10px;
+    }
+
+    .cert-name-line {
+      width: 100%;
+      text-align: center;
+      font-family: inherit;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1b5e20;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid #2e7d32;
+      padding: 6px 12px;
+      outline: none;
+    }
+
+    .cert-description {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #37474f;
+      max-width: 700px;
+      margin: 18px auto 26px;
+      line-height: 1.5;
+    }
+
+    .cert-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid #c8e6c9;
+      padding-top: 16px;
+      gap: 16px;
+    }
+
+    .cert-sign {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.92rem;
+      color: #546e7a;
+    }
+
+    .cert-sign strong {
+      font-size: 1.08rem;
+      color: #1b5e20;
+      margin-bottom: 2px;
+    }
+
+    .cert-stars {
+      background: #fff8e1;
+      border: 2px solid #ffb300;
+      color: #e65100;
+      font-weight: 900;
+      font-size: 1.12rem;
+      padding: 8px 22px;
+      border-radius: 999px;
+    }
+
+    .toolbar {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 11px 24px;
+      border-radius: 999px;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #fb8c00, #ef6c00);
+    }
+
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+
+      body {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .cert-sheet {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cert-name-line::placeholder {
+        color: transparent !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cert-sheet">
+    <div class="cert-inner">
+      <div class="cert-top-row">
+        <img src="დედამიწა.png" alt="ეკო" class="cert-mascot" />
+        <div class="cert-center-head">
+          <img src="logo.png" alt="ფუსფუსა სახელოსნო" class="cert-logo" />
+          <h1 class="cert-title">სერთიფიკატი</h1>
+          <div class="cert-subtitle-badge">🏆 „ნიადაგის ბინადრების მკვლევარები“</div>
+        </div>
+        <img src="ტექნოლოგია.png" alt="ბითი" class="cert-mascot" />
+      </div>
+
+      <div class="cert-recipient-section">
+        <label class="cert-recipient-label" for="studentName">გადაეცემა ნორჩ მკვლევარს:</label>
+        <input
+          type="text"
+          id="studentName"
+          class="cert-name-line"
+          placeholder="ჩაწერე სახელი და გვარი (ან დატოვე ცარიელი ხელით ჩასაწერად)"
+        />
+      </div>
+
+      <p class="cert-description">
+        ეკოსა და ბითისთან ერთად „მიწისქვეშა ქალაქის“ წარმატებით გამოკვლევისთვის, ნიადაგის ბინადრების გაცნობისა და მათი საცხოვრებელი გარემოს შესწავლისთვის!
+      </p>
+
+      <div class="cert-footer">
+        <div class="cert-sign">
+          <strong>ეკო და ბითი</strong>
+          <span>ფუსფუსა სახელოსნოს მეგზურები</span>
+        </div>
+        <div class="cert-stars">⭐ დაგროვებული ვარსკვლავები: 5 / 5</div>
+        <div class="cert-sign">
+          <strong id="dateBox"></strong>
+          <span>გაცემის თარიღი</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn btn-print" onclick="window.print()">🖨️ სერთიფიკატის დაბეჭდვა / PDF-ად შენახვა</button>
+  </div>
+
+  <script>
+    document.getElementById('dateBox').textContent = new Date().toLocaleDateString('ka-GE');
+  </script>
+</body>
+</html>

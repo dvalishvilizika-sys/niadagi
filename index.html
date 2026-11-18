@@ -668,7 +668,7 @@
             </div>
           </div>
 
-          <div class="mascots-banner">
+          <div class="mascots-banner" id="quizMascotsBanner">
             <div class="mascot-avatars">
               <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
               <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
@@ -676,7 +676,7 @@
             <div class="mascot-speech">
               <h3>🏆 შეამოწმე შენი ცოდნა ეკოსა და ბითისთან ერთად!</h3>
               <p id="quizHelperText">
-                უპასუხე 6 შეკითხვას ვიდეოების შინაარსიდან და მიიღე „ნიადაგის ნორჩი მკვლევრის“ საპატიო სიგელი!
+                უპასუხე 6 შეკითხვას ვიდეოების შინაარსიდან და მიიღე დასაბეჭდი სერთიფიკატი — „ნიადაგის ბინადრების მკვლევარები“!
               </p>
             </div>
           </div>
@@ -689,25 +689,62 @@
             </div>
           </div>
 
-          <!-- Final Certificate -->
+          <!-- Final Printable Certificate -->
           <div class="certificate-card" id="certificateCard">
-            <div class="cert-mascots">
-              <img src="დედამიწა.png" alt="ეკო" />
-              <img src="logo.png" alt="ფუსფუსა სახელოსნო" class="cert-logo" />
-              <img src="ტექნოლოგია.png" alt="ბითი" />
+            <div class="cert-print-border">
+              <div class="cert-mascots">
+                <img src="დედამიწა.png" alt="ეკო" />
+                <div class="cert-header-titles">
+                  <div class="cert-logo-row">
+                    <img src="logo.png" alt="ფუსფუსა სახელოსნოს ლოგო" class="cert-logo" />
+                  </div>
+                  <h2 class="cert-main-title">სერთიფიკატი</h2>
+                  <div class="cert-badge-title">🏆 „ნიადაგის ბინადრების მკვლევარები“</div>
+                </div>
+                <img src="ტექნოლოგია.png" alt="ბითი" />
+              </div>
+
+              <div class="cert-recipient-box">
+                <label for="certStudentName" class="cert-recipient-label">გადაეცემა ნორჩ მკვლევარს (სახელი და გვარი ან კლასი):</label>
+                <input
+                  type="text"
+                  id="certStudentName"
+                  class="cert-name-input"
+                  placeholder="ჩაწერე სახელი და გვარი..."
+                  autocomplete="off"
+                />
+              </div>
+
+              <p class="cert-body-text">
+                ეკოსა და ბითისთან ერთად „მიწისქვეშა ქალაქის“ წარმატებით გამოკვლევისთვის, ნიადაგის ბინადრების გაცნობისა და მათი საცხოვრებელი გარემოს შესწავლისთვის!
+              </p>
+
+              <div class="cert-footer-meta">
+                <div class="cert-sign-col">
+                  <strong>ეკო და ბითი</strong>
+                  <span>ფუსფუსა სახელოსნოს მეგზურები</span>
+                </div>
+                <div class="cert-stars-seal">
+                  ⭐ დაგროვებული ვარსკვლავები: <span id="finalStarScore">0</span>
+                </div>
+                <div class="cert-sign-col">
+                  <strong id="certDateText"></strong>
+                  <span>გაცემის თარიღი</span>
+                </div>
+              </div>
             </div>
-            <h2 style="color: #1b5e20; font-size: 1.5rem; margin-bottom: 8px;">
-              🎉 გილოცავთ! შენ გახდი „ნიადაგის ნორჩი მკვლევარი“!
-            </h2>
-            <p style="font-size: 1rem; color: #37474f; max-width: 580px; margin: 0 auto 12px;">
-              შენ ეკოსა და ბითისთან ერთად წარმატებით გამოიკვლიე მიწისქვეშა ქალაქი, გაიცანი მისი ბინადრები და შეისწავლე მათი საცხოვრებელი გარემო!
-            </p>
-            <div style="font-size: 1.25rem; font-weight: 800; color: #e65100; margin-bottom: 14px;">
-              დაგროვებული ვარსკვლავები: ⭐ <span id="finalStarScore">0</span>
+
+            <div class="cert-actions-bar no-print">
+              <button class="nav-action-btn download-cert-btn" onclick="downloadCertificateImage()">
+                📥 სერთიფიკატის ჩამოტვირთვა
+              </button>
+              <button class="nav-action-btn print-cert-btn" onclick="printCertificate()">
+                🖨️ დაბეჭდვა
+              </button>
+              <button class="nav-action-btn prev-btn" onclick="restartAdventure()">
+                🔄 თავიდან დაწყება
+              </button>
             </div>
-            <button class="nav-action-btn next-btn" onclick="restartAdventure()">
-              🔄 თავგადასავლის თავიდან დაწყება
-            </button>
           </div>
 
           <div class="stage-footer-nav">

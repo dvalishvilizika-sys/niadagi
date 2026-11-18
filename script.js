@@ -78,7 +78,7 @@ function toggleSound() {
 }
 
 function addStars(amount) {
-  stars += amount;
+  stars = Math.min(5, stars + amount);
   document.getElementById('starCount').textContent = stars;
 }
 
@@ -109,9 +109,15 @@ function goToStage(stageNum) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+let completedStagesSet = new Set();
+
 function markStageCompleted(stageNum) {
   const btn = document.querySelector(`.stage-btn[data-stage="${stageNum}"]`);
   if (btn) btn.classList.add('completed');
+  if (!completedStagesSet.has(stageNum)) {
+    completedStagesSet.add(stageNum);
+    addStars(1);
+  }
 }
 
 function playStageVideo(stageNum) {
@@ -196,7 +202,6 @@ function selectExplorerTool(btnEl, toolKey) {
       btnEl.classList.add('correct-tool');
       if (badge) badge.textContent = '✅';
       playTone('success');
-      addStars(1);
       document.getElementById('toolsPickedCount').textContent = pickedCorrectTools.size;
 
       if (pickedCorrectTools.size === 6 && !stage1BonusAwarded) {
@@ -367,7 +372,6 @@ function discoverCreature(spotEl, index) {
     showCreatureInInfoCard(index);
 
     playTone('success');
-    addStars(1);
     document.getElementById('foundCount').textContent = discoveredSet.size;
 
     if (discoveredSet.size === scannerCreatures.length) {
@@ -486,7 +490,6 @@ function placeInCityZone(zoneEl, zoneKey) {
     }
 
     selectedCityAnimal = null;
-    addStars(1);
     document.getElementById('cityPlacedCount').textContent = placedCityAnimals.size;
 
     if (placedCityAnimals.size === 7) {
@@ -575,7 +578,6 @@ function observeSimCreature(btnEl, creatureId) {
     btnEl.classList.add('observed');
     if (checkEl) checkEl.textContent = '✅';
     playTone('success');
-    addStars(1);
     document.getElementById('sortedCount').textContent = observedSimCreatures.size;
 
     if (observedSimCreatures.size === 7) {
@@ -654,21 +656,30 @@ const quizQuestions = [
 ];
 
 let currentQuizIdx = 0;
+let answeredQuizSet = new Set();
 
 function renderQuizQuestion() {
   const quizContainer = document.getElementById('quizContainer');
   const certCard = document.getElementById('certificateCard');
+  const mascotsBanner = document.getElementById('quizMascotsBanner');
 
   if (currentQuizIdx >= quizQuestions.length) {
     quizContainer.style.display = 'none';
+    if (mascotsBanner) mascotsBanner.style.display = 'none';
     certCard.classList.add('visible');
-    document.getElementById('finalStarScore').textContent = stars;
     markStageCompleted(5);
+    document.getElementById('finalStarScore').textContent = `${stars} / 5`;
+    const dateEl = document.getElementById('certDateText');
+    if (dateEl && !dateEl.textContent) {
+      const now = new Date();
+      dateEl.textContent = now.toLocaleDateString('ka-GE');
+    }
     playTone('fanfare');
     return;
   }
 
   quizContainer.style.display = 'block';
+  if (mascotsBanner) mascotsBanner.style.display = 'flex';
   certCard.classList.remove('visible');
 
   const item = quizQuestions[currentQuizIdx];
@@ -692,7 +703,6 @@ function checkQuizAnswer(btnEl, chosenIdx, item) {
   if (chosenIdx === item.correct) {
     playTone('success');
     btnEl.classList.add('correct');
-    addStars(2);
     document.getElementById('quizHelperText').innerHTML = `🌟 ${item.explanation}`;
 
     document.querySelectorAll('.quiz-opt-btn').forEach((b) => (b.disabled = true));
@@ -707,6 +717,184 @@ function checkQuizAnswer(btnEl, chosenIdx, item) {
     document.getElementById('quizHelperText').innerHTML =
       '🤔 სცადე კიდევ ერთხელ! გაიხსენე რა გვითხრეს ეკომ და ბითიმ ვიდეოში.';
   }
+}
+
+function loadCertImage(src) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
+async function downloadCertificateImage() {
+  playTone('click');
+  const canvas = document.createElement('canvas');
+  canvas.width = 1600;
+  canvas.height = 1130;
+  const ctx = canvas.getContext('2d');
+
+  // Background gradient
+  const bgGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  bgGrad.addColorStop(0, '#fffef2');
+  bgGrad.addColorStop(1, '#e8f5e9');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Outer solid green border
+  ctx.strokeStyle = '#2e7d32';
+  ctx.lineWidth = 14;
+  ctx.strokeRect(36, 36, canvas.width - 72, canvas.height - 72);
+
+  // Inner dashed border
+  ctx.strokeStyle = '#66bb6a';
+  ctx.lineWidth = 4;
+  ctx.setLineDash([16, 10]);
+  ctx.strokeRect(64, 64, canvas.width - 128, canvas.height - 128);
+  ctx.setLineDash([]);
+
+  // Load images
+  const [ecoImg, bitiImg, logoImg] = await Promise.all([
+    loadCertImage('დედამიწა.png'),
+    loadCertImage('ტექნოლოგია.png'),
+    loadCertImage('logo.png')
+  ]);
+
+  // Draw logo in center top
+  if (logoImg) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, 165, 58, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+    ctx.drawImage(logoImg, canvas.width / 2 - 58, 107, 116, 116);
+    ctx.restore();
+
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, 165, 58, 0, Math.PI * 2);
+    ctx.strokeStyle = '#2e7d32';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+  }
+
+  // Draw Eco & Biti on left and right
+  if (ecoImg) {
+    ctx.drawImage(ecoImg, 130, 120, 170, 200);
+  }
+  if (bitiImg) {
+    ctx.drawImage(bitiImg, canvas.width - 300, 120, 170, 200);
+  }
+
+  // Title: სერთიფიკატი
+  ctx.fillStyle = '#1b5e20';
+  ctx.font = '900 64px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('სერთიფიკატი', canvas.width / 2, 300);
+
+  // Orange Badge: 🏆 „ნიადაგის ბინადრების მკვლევარები“
+  const badgeW = 760;
+  const badgeH = 68;
+  const badgeX = (canvas.width - badgeW) / 2;
+  const badgeY = 335;
+  ctx.fillStyle = '#fb8c00';
+  ctx.beginPath();
+  ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 34);
+  ctx.fill();
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 32px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText('🏆 „ნიადაგის ბინადრების მკვლევარები“', canvas.width / 2, badgeY + 45);
+
+  // Recipient label
+  ctx.fillStyle = '#37474f';
+  ctx.font = '700 26px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText('გადაეცემა ნორჩ მკვლევარს:', canvas.width / 2, 485);
+
+  // Recipient Name or Blank Line for printing
+  const nameInput = document.getElementById('certStudentName');
+  const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '';
+
+  if (studentName) {
+    ctx.fillStyle = '#1b5e20';
+    ctx.font = '900 48px "Segoe UI", "Sylfaen", sans-serif';
+    ctx.fillText(studentName, canvas.width / 2, 565);
+  }
+
+  // Underline for name
+  ctx.strokeStyle = '#2e7d32';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(350, 585);
+  ctx.lineTo(canvas.width - 350, 585);
+  ctx.stroke();
+
+  // Body paragraph
+  ctx.fillStyle = '#263238';
+  ctx.font = '600 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText(
+    'ეკოსა და ბითისთან ერთად „მიწისქვეშა ქალაქის“ წარმატებით გამოკვლევისთვის,',
+    canvas.width / 2,
+    680
+  );
+  ctx.fillText(
+    'ნიადაგის ბინადრების გაცნობისა და მათი საცხოვრებელი გარემოს შესწავლისთვის!',
+    canvas.width / 2,
+    725
+  );
+
+  // Footer divider
+  ctx.strokeStyle = '#a5d6a7';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(140, 860);
+  ctx.lineTo(canvas.width - 140, 860);
+  ctx.stroke();
+
+  // Left signature
+  ctx.fillStyle = '#1b5e20';
+  ctx.font = '800 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText('ეკო და ბითი', 310, 930);
+  ctx.fillStyle = '#546e7a';
+  ctx.font = '600 22px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText('ფუსფუსა სახელოსნოს მეგზურები', 310, 965);
+
+  // Center stars pill
+  const starW = 460;
+  const starH = 64;
+  const starX = (canvas.width - starW) / 2;
+  const starY = 905;
+  ctx.fillStyle = '#fff8e1';
+  ctx.strokeStyle = '#ffb300';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.roundRect(starX, starY, starW, starH, 32);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#e65100';
+  ctx.font = '900 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText(`⭐ დაგროვებული ვარსკვლავები: ${stars || 5} / 5`, canvas.width / 2, starY + 42);
+
+  // Right Date
+  const dateStr = new Date().toLocaleDateString('ka-GE');
+  ctx.fillStyle = '#1b5e20';
+  ctx.font = '800 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText(dateStr, canvas.width - 310, 930);
+  ctx.fillStyle = '#546e7a';
+  ctx.font = '600 22px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.fillText('გაცემის თარიღი', canvas.width - 310, 965);
+
+  // Trigger download
+  const link = document.createElement('a');
+  link.download = 'სერთიფიკატი-ნიადაგის-ბინადრების-მკვლევარები.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function printCertificate() {
+  playTone('click');
+  window.print();
 }
 
 function restartAdventure() {
