@@ -141,48 +141,48 @@ function replayStageVideo(stageNum) {
 const explorerToolsData = {
   lupa: {
     correct: true,
-    title: '🔍 ჭკვიანი ლუპა',
-    msg: 'შესანიშნავია! ლუპით ყველაზე პატარა ჭიანჭველასა და ხოჭოს მატლსაც ახლოდან დავაკვირდებით!'
+    title: '🔍 ლუპა',
+    msg: 'შესანიშნავია! ლუპით პატარა ჭიანჭველასა და ხოჭოს მატლს ახლოდან დავაკვირდებით ისე, რომ ხელით არ შევეხოთ!'
   },
   telescope: {
     correct: false,
     title: '🔭 ტელესკოპი',
-    msg: 'ჰაჰა! ტელესკოპი ცაში ვარსკვლავებისა და პლანეტების საყურებლადაა — მიწის ქვეშ ის არ გამოგვადგება!'
+    msg: 'ჰაჰა! ტელესკოპი ცაში ვარსკვლავებისა და პლანეტების საყურებლადაა — ნიადაგის კვლევაში ის არ გამოგვადგება!'
   },
   shovel: {
     correct: true,
-    title: 'ნიჩაბი',
-    msg: 'სწორია! პატარა ნიჩბით მიწას ფრთხილად გავაფხვიერებთ ისე, რომ ბინადრებს სახლები არ დავუზიანოთ.'
+    title: 'პატარა ნიჩაბი',
+    msg: 'სწორია! პატარა ნიჩბით მიწასა და ფოთლებს ფრთხილად გადავწევთ ისე, რომ ბინადრებს სახლები არ დავუზიანოთ.'
   },
-  detector: {
+  camera: {
     correct: true,
-    title: '📡 მიწისქვეშა დეტექტორი',
-    msg: 'ბითი: „სუპერ! დეტექტორით ღრმა სოროებსა და მიწისქვეშა მოძრაობას უცებ ვიპოვით!“'
+    title: '📷 ფოტოაპარატი',
+    msg: 'ბითი: „შესანიშნავია! ფოტოაპარატით ბინადრებს შორიდან გადავუღებთ სურათებს ისე, რომ არ შევაწუხოთ და არ დავაფრთხოთ!“'
   },
   diary: {
     correct: true,
     title: '📓 საველე დღიური',
-    msg: 'ეკო: „ძალიან კარგია! დღიურში ჩავინიშნავთ, ვინ სად ცხოვრობს და როგორი მიწა მოსწონს!“'
+    msg: 'ეკო: „ძალიან კარგია! საველე დღიურში ჩავინიშნავთ, რომელი ბინადარი სად ცხოვრობს და როგორი გარემო უხდება!“'
   },
   fins: {
     correct: false,
     title: '🤿 საცურაო აღჭურვილობა',
-    msg: 'არასწორია! საცურაო აღჭურვილობა ზღვაში საყვინთაოდაა საჭირო, ჩვენ კი ნიადაგის გამოსაკვლევად მივდივართ!'
+    msg: 'არასწორია! საცურაო აღჭურვილობა წყალში საცურაოდაა, ჩვენ კი ნიადაგის გამოსაკვლევად მივდივართ!'
   },
-  flashlight: {
+  ruler: {
     correct: true,
-    title: '🔦 ფარანი სოროებისთვის',
-    msg: 'ყოჩაღ! მიწის ქვეშ მზის სხივები ვერ აღწევს, ამიტომ ფარანი ბნელ გვირაბებს გაგვინათებს!'
+    title: '📏 სახაზავი',
+    msg: 'ყოჩაღ! სახაზავით ნაკვალევისა და პატარა ბინადრების ზომას გავზომავთ და საველე დღიურში ჩავინიშნავთ!'
   },
   horn: {
     correct: false,
     title: '📢 ხმამაღალი საყვირი',
-    msg: 'არა! ტყესა და მინდორში ხმაური არ შეიძლება — საყვირი ნიადაგის ბინადრებს შეაშინებს და დააფრთხობს!'
+    msg: 'არა! ბუნებაში ხმაური არ შეიძლება — საყვირი ნიადაგის ბინადრებს შეაშინებს და დააფრთხობს!'
   },
   gloves: {
     correct: true,
     title: '🧤 დამცავი ხელთათმანი',
-    msg: 'ზუსტია! ნამდვილ მკვლევარს მიწასა და ფოთლებთან სამუშაოდ დამცავი ხელთათმანი აუცილებლად სჭირდება!'
+    msg: 'ზუსტია! ხელთათმანი ხელებს მიწისა და ეკლიანი მცენარეებისგან იცავს — თუმცა ბინადრებს მაინც ფრთხილად ვეპყრობით!'
   }
 };
 
@@ -233,28 +233,28 @@ const scannerCreatures = [
     emoji: '🪱',
     iconHtml: '<img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-discovery-icon" />',
     title: 'ჭიაყელა (წვიმის ჭია)',
-    text: 'ეკო: „ეს ჭიაყელაა! ის ნიადაგში პატარა გვირაბებს თხრის, მიწას აფხვიერებს და მცენარეებს სუნთქვაში ეხმარება.“'
+    text: 'ეკო: „ეს ჭიაყელაა! ის ნიადაგში გვირაბებს თხრის, მიწას აფხვიერებს და ფესვებამდე ჰაერსა და წყალს ატარებს — ასე მცენარეებს ზრდაში ეხმარება.“'
   },
   {
     emoji: '🐌',
     title: 'ლოკოკინა',
-    text: 'ბითი: „ჩემმა სკანერმა ლოკოკინა დააფიქსირა! მას ზურგზე საკუთარი სახლი — ნიჟარა აკიდია და ნესტიანი ფოთლები უყვარს.“'
+    text: 'ბითი: „ლოკოკინას ზურგზე დამცავი ნიჟარა აკიდია. ის ნესტიან ფოთლებზე ცოცავს და მცენარეებითა და ჩამოცვენილი ფოთლებით იკვებება.“'
   },
   {
     emoji: '🐜',
     title: 'ჭიანჭველა',
-    text: 'ეკო: „ჭიანჭველები ნიადაგის ქვეშ ნამდვილ მრავალსართულიან ქალაქებსა და დერეფნებს აშენებენ!“'
+    text: 'ეკო: „ჭიანჭველები ფხვიერ ნიადაგში გვირაბებსა და საწყობებს თხრიან, მიწას აფხვიერებენ და ტყესა თუ მინდორს ნარჩენებისგან ასუფთავებენ.“'
   },
   {
     emoji: '🐛',
     title: 'ხოჭოს მატლი',
-    text: 'ბითი: „ეს ხოჭოს მატლია! ის მიწის ქვეშ, ფესვებთან და ხის ქერქთან იზრდება, სანამ ზრდასრულ ხოჭოდ გადაიქცევა.“'
+    text: 'ბითი: „ეს ხოჭოს მატლია! ის მიწის ქვეშ, ფესვებთან და დამპალ მცენარეულ ნარჩენებში იზრდება, სანამ ზრდასრულ ხოჭოდ გადაიქცევა.“'
   },
   {
     emoji: '🐾',
     iconHtml: '<img src="თხუნელა.png" alt="თხუნელა" class="worm-discovery-icon" />',
     title: 'თხუნელა',
-    text: 'ეკო: „ვაა, თხუნელა! ის მიწისქვეშა ცხოველია და თავისი ძლიერი წინა თათებით გრძელ სოროებს თხრის.“'
+    text: 'ეკო: „თხუნელა მიწისქვეშა ძუძუმწოვარია! ნიჩბებივით ძლიერი წინა თათებით ღრმა სოროებს თხრის და მიწის მავნებელი მწერებით იკვებება.“'
   },
   {
     emoji: '🐛',
@@ -276,27 +276,28 @@ const scannerCreatures = [
       <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
     </svg>`,
     title: 'მრავალფეხა',
-    text: 'ბითი: „სკანერმა მრავალფეხა აღმოაჩინა! მას უამრავი პატარა ფეხი აქვს და ნესტიანი ფოთლებისა და ქვების ქვეშ სწრაფად დაცოცავს.“'
+    text: 'ბითი: „მრავალფეხას უამრავი პატარა ფეხი აქვს. ის ტენიანი ფოთლებისა და ქვების ქვეშ ცხოვრობს და ჩამოცვენილი ფოთლების ნიადაგად ქცევაში ეხმარება.“'
   },
   {
-    emoji: '🦗',
-    title: 'მიწის კალია / კოკორი',
-    text: 'ეკო: „ეს მიწის კალიაა, რომელსაც მახრას ან კოკორსაც ეძახიან! მისი ძლიერი წინა ფეხები ნიჩბებს ჰგავს და მიწის გათხრაში ეხმარება.“'
+    emoji: '🐞',
+    iconHtml: '<img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-discovery-icon" />',
+    title: 'მინდვრის ხოჭო',
+    text: 'ეკო: „მინდვრის ხოჭოს მკვრივი ჯავშანი გამოშრობისგან იცავს. ის მიწის ზედაპირზე სწრაფად დარბის და მცენარის მავნებლებს ანადგურებს.“'
   },
   {
-    emoji: '🐍',
-    title: 'მიწის მცოცავი გველი',
-    text: 'ბითი: „შეხედე, მიწის მცოცავი გველი! ის უფეხოდ, სხეულის კლაკვნით სრიალებს ბალახსა და მიწის ნაპრალებში.“'
+    emoji: '🦎',
+    title: 'ხვლიკი',
+    text: 'ბითი: „ხვლიკი ქვეწარმავალია! მზიან ამინდში თბილ მიწაზე და ქვებზე თბება, საფრთხისას კი ბალახსა და მიწის ნაპრალებში იმალება.“'
   },
   {
     emoji: '🐭',
     title: 'მინდვრის თაგვი',
-    text: 'ეკო: „ეს პატარა მინდვრის თაგვია! ის მიწის ქვეშ თბილ სოროს იწყობს და ზამთრისთვის მარცვლებს აგროვებს.“'
+    text: 'ეკო: „მინდვრის თაგვი მიწის ქვეშ გრილ სოროს თხრის, შიგნით რბილ ბალახს აფენს და ზამთრისთვის მარცვლებსა და თესლებს აგროვებს.“'
   },
   {
-    emoji: '🕷️',
-    title: 'მიწის ობობა',
-    text: 'ბითი: „ჩემმა სკანერმა მიწის ობობა დააფიქსირა! ის ლოკოკინასავით ნიადაგის ზედაპირზე, ფოთლებსა და ქვებს შორის ბინადრობს.“'
+    emoji: '🦔',
+    title: 'ზღარბი',
+    text: 'ბითი: „ზღარბი ბუჩქების ძირას და ჩამოცვენილ ფოთლებში იწყობს ბუდეს, ხოლო საღამოობით ნიადაგზე მწერებს, ჭიებსა და ლოკოკინებს ეძებს.“'
   }
 ];
 
@@ -344,6 +345,8 @@ function writeCreatureToDiary(index, slotIdx) {
     smallIconHtml = '<img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-inline-icon" />';
   } else if (index === 4) {
     smallIconHtml = '<img src="თხუნელა.png" alt="თხუნელა" class="worm-inline-icon" />';
+  } else if (index === 6) {
+    smallIconHtml = '<img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-inline-icon" />';
   } else if (data.iconHtml) {
     smallIconHtml = data.iconHtml;
   }
@@ -386,38 +389,110 @@ function discoverCreature(spotEl, index) {
   }
 }
 
-// ==================== STAGE 3: UNDERGROUND CITY PLACEMENT (VISUAL ONLY) ====================
+// ==================== STAGE 3: UNDERGROUND CITY PLACEMENT ====================
 let selectedCityAnimal = null;
 let placedCityAnimals = new Set();
 
 const cityAnimalInfo = {
   snail: {
-    zone: 'surface',
-    visualHtml: '🐌'
+    zones: ['surface'],
+    name: 'ლოკოკინა',
+    visualHtml: '🐌',
+    note: '🍂 <strong>ლოკოკინა (ზედაპირი და ფოთლები):</strong> მიწას ვერ თხრის — სველ ფოთლებსა და ხავსზე ცოცავს და მცენარეებით იკვებება.',
+    wrongMsg: '🤔 <strong>ლოკოკინას</strong> ნიჟარით მიწის თხრა არ შეუძლია — ის ზედაპირზე, ფოთლების საფარში დააბრუნე!'
   },
-  spider: {
-    zone: 'surface',
-    visualHtml: '🕷️'
+  hedgehog: {
+    zones: ['surface'],
+    name: 'ზღარბი',
+    visualHtml: '🦔',
+    note: '🍂 <strong>ზღარბი (ზედაპირი და ფოთლები):</strong> ბუჩქების ძირას და ჩამოცვენილ ფოთლებში იწყობს ბუდეს, ზედაპირზე კი მწერებსა და ჭიებს ეძებს.',
+    wrongMsg: '🤔 <strong>ზღარბი</strong> ღრმა გვირაბებს არ თხრის — ის ფოთლების საფარში და ბუჩქების ძირას ბინადრობს!'
+  },
+  beetle: {
+    zones: ['surface'],
+    name: 'მინდვრის ხოჭო',
+    visualHtml: '<img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-token-img" />',
+    note: '🍂 <strong>მინდვრის ხოჭო (ზედაპირი და ფოთლები):</strong> მიწის ზედაპირზე და ჩამოცვენილ ფოთლებში სწრაფად დარბის და მავნებელ მწერებზე ნადირობს.',
+    wrongMsg: '🤔 <strong>მინდვრის ხოჭო</strong> მიწის ზედაპირზე და ფოთლებს შორის ცხოვრობს — სცადე პირველი ფენა!'
+  },
+  lizard: {
+    zones: ['surface'],
+    name: 'ხვლიკი',
+    visualHtml: '🦎',
+    note: '🍂 <strong>ხვლიკი (ზედაპირი და ფოთლები):</strong> ქვეწარმავალია — მზიან ზედაპირზე თბება, საფრთხისას კი ბალახსა და ფოთლებში იმალება.',
+    wrongMsg: '🤔 <strong>ხვლიკი</strong> ღრმა მიწისქვეშა სოროს არ თხრის — ის ზედაპირზე, ფოთლებსა და მზიან ქვებთან ბინადრობს!'
   },
   ants: {
-    zone: 'roots',
-    visualHtml: '🐜'
+    zones: ['roots'],
+    name: 'ჭიანჭველა',
+    visualHtml: '🐜',
+    note: '🌱 <strong>ჭიანჭველა (რბილი ნიადაგი და ფესვები):</strong> ფხვიერ ნიადაგში, მცენარის ფესვებს შორის აშენებს დერეფნებსა და კვერცხების საცავებს.',
+    wrongMsg: '🤔 <strong>ჭიანჭველები</strong> ბუდეს რბილ ნიადაგსა და ფესვების ქსელში აშენებენ — სცადე შუა ფენა!'
   },
   worm: {
-    zone: 'roots',
-    visualHtml: '<img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-token-img" />'
+    zones: ['roots'],
+    name: 'ჭიაყელა',
+    visualHtml: '<img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-token-img" />',
+    note: '🌱 <strong>ჭიაყელა (რბილი ნიადაგი და ფესვები):</strong> რბილი, მოქნილი სხეულით ფესვებთან თხრის გვირაბებს და მიწას აფხვიერებს.',
+    wrongMsg: '🤔 <strong>ჭიაყელა</strong> ფესვებთან, რბილ ნიადაგში ცხოვრობს, სადაც მიწას აფხვიერებს — სცადე შუა ფენა!'
   },
   larva: {
-    zone: 'roots',
-    visualHtml: '🐛'
+    zones: ['roots'],
+    name: 'ხოჭოს მატლი',
+    visualHtml: '🐛',
+    note: '🌱 <strong>ხოჭოს მატლი (რბილი ნიადაგი და ფესვები):</strong> მიწის ქვეშ, ფესვებთან იმალება და იზრდება, სანამ ზრდასრულ ხოჭოდ იქცევა.',
+    wrongMsg: '🤔 <strong>ხოჭოს მატლი</strong> მცენარის ფესვებთან, რბილ ნიადაგში იზრდება — სცადე შუა ფენა!'
+  },
+  millipede: {
+    zones: ['roots', 'surface'],
+    name: 'მრავალფეხა',
+    visualHtml: `<svg viewBox="0 0 64 40" width="32" height="22" aria-hidden="true">
+      <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
+        <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
+        <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
+        <line x1="32" y1="22" x2="30" y2="32"/><line x1="35" y1="22" x2="34" y2="32"/>
+        <line x1="42" y1="23" x2="40" y2="33"/><line x1="45" y1="23" x2="44" y2="33"/>
+        <line x1="51" y1="24" x2="50" y2="34"/><line x1="54" y1="24" x2="55" y2="34"/>
+      </g>
+      <circle cx="13" cy="20" r="6" fill="#bf360c"/>
+      <circle cx="22" cy="18" r="6.5" fill="#d84315"/>
+      <circle cx="32" cy="17" r="6.5" fill="#e64a19"/>
+      <circle cx="42" cy="18" r="6.5" fill="#d84315"/>
+      <circle cx="51" cy="19" r="7" fill="#bf360c"/>
+      <path d="M56 15 Q61 9 63 11" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+      <path d="M57 18 Q62 15 63 18" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
+    </svg>`,
+    note: '🌱 <strong>მრავალფეხა (ფოთლები და ზედა რბილი ნიადაგი):</strong> ჩამოცვენილი ფოთლების ქვეშ და ფესვების ზედა ფენაში ცხოვრობს და მცენარეულ ნარჩენებს ამუშავებს.',
+    wrongMsg: '🤔 <strong>მრავალფეხა</strong> ღრმა სოროში არ ცხოვრობს — ის ფოთლების ქვეშ ან ზედა რბილ ნიადაგში მოათავსე!'
   },
   mouse: {
-    zone: 'deep',
-    visualHtml: '🐭'
+    zones: ['deep'],
+    name: 'მინდვრის თაგვი',
+    visualHtml: '🐭',
+    note: '🕳️ <strong>მინდვრის თაგვი (ღრმა სორო):</strong> მტაცებლებისა და სიცივისგან დასაცავად ღრმა სოროს თხრის და ბალახით მოფენილ ბუდეს იწყობს.',
+    wrongMsg: '🤔 <strong>მინდვრის თაგვი</strong> უსაფრთხო, ბალახით მოფენილ ღრმა მიწისქვეშა სოროში ცხოვრობს!'
   },
   mole: {
-    zone: 'deep',
-    visualHtml: '<img src="თხუნელა.png" alt="თხუნელა" class="worm-token-img" />'
+    zones: ['deep'],
+    name: 'თხუნელა',
+    visualHtml: '<img src="თხუნელა.png" alt="თხუნელა" class="worm-token-img" />',
+    note: '🕳️ <strong>თხუნელა (ღრმა სორო):</strong> ნიჩბებივით ძლიერი წინა თათებით ღრმა გვირაბებს თხრის და თითქმის მთელ ცხოვრებას მიწის ქვეშ ატარებს.',
+    wrongMsg: '🤔 <strong>თხუნელას</strong> ძლიერი მთხრელი თათები ღრმა მიწისქვეშა სოროსთვის აქვს — სცადე მესამე ფენა!'
+  },
+  badger: {
+    zones: ['deep'],
+    name: 'მაჩვი',
+    visualHtml: '🦡',
+    note: '🕳️ <strong>მაჩვი (ღრმა სორო):</strong> ძლიერი ბრჭყალებით მიწის ქვეშ ღრმა, მრავალოთახიან სოროს თხრის, სადაც ოჯახთან ერთად ცხოვრობს.',
+    wrongMsg: '🤔 <strong>მაჩვი</strong> ცნობილი მიწისქვეშა მთხრელია — ის ღრმა მიწისქვეშა სოროში დააბინავე!'
+  },
+  fox: {
+    zones: ['deep'],
+    name: 'მელა',
+    visualHtml: '🦊',
+    note: '🕳️ <strong>მელა (ღრმა სორო):</strong> ხის ფესვების ქვეშ და ფერდობებზე ღრმა მიწისქვეშა სოროს იწყობს, სადაც ლეკვებს ზრდის და ამინდისგან აფარებს თავს.',
+    wrongMsg: '🤔 <strong>მელა</strong> თავშესაფარს ღრმა მიწისქვეშა სოროში იწყობს — სცადე მესამე ფენა!'
   }
 };
 
@@ -428,6 +503,12 @@ function selectCityAnimal(tokenEl, animalKey) {
 
   document.querySelectorAll('.animal-token').forEach((el) => el.classList.remove('selected'));
   tokenEl.classList.add('selected');
+
+  const info = cityAnimalInfo[animalKey];
+  const feedback = document.getElementById('cityFeedbackText');
+  if (info && feedback) {
+    feedback.innerHTML = `არჩეულია: <strong>${info.name}</strong> — ახლა მოათავსე მის სართულზე (ზედაპირი, ფესვების ფენა ან ღრმა სორო)!`;
+  }
 }
 
 function dragCityAnimal(e, animalKey) {
@@ -462,8 +543,14 @@ function dropOnCityZone(e, zoneEl, zoneKey) {
 }
 
 function placeInCityZone(zoneEl, zoneKey) {
+  const feedback = document.getElementById('cityFeedbackText');
+  const noteCard = document.getElementById('cityNoteCard');
+
   if (!selectedCityAnimal) {
     playTone('error');
+    if (feedback) {
+      feedback.innerHTML = '👆 ჯერ ზედა ზოლიდან აირჩიე ბინადარი, შემდეგ კი დააწკაპუნე მის სართულს!';
+    }
     return;
   }
 
@@ -471,7 +558,7 @@ function placeInCityZone(zoneEl, zoneKey) {
   if (placedCityAnimals.has(animalKey)) return;
 
   const info = cityAnimalInfo[animalKey];
-  if (info && info.zone === zoneKey) {
+  if (info && info.zones.includes(zoneKey)) {
     playTone('success');
     placedCityAnimals.add(animalKey);
 
@@ -479,7 +566,15 @@ function placeInCityZone(zoneEl, zoneKey) {
     if (badgesBox) {
       const pill = document.createElement('div');
       pill.className = 'placed-animal-pill';
+      pill.style.cursor = 'pointer';
+      pill.setAttribute('data-tooltip', info.name);
+      pill.setAttribute('aria-label', info.name);
       pill.innerHTML = info.visualHtml;
+      pill.onclick = (ev) => {
+        ev.stopPropagation();
+        playTone('click');
+        if (feedback) feedback.innerHTML = info.note;
+      };
       badgesBox.appendChild(pill);
     }
 
@@ -492,102 +587,241 @@ function placeInCityZone(zoneEl, zoneKey) {
     selectedCityAnimal = null;
     document.getElementById('cityPlacedCount').textContent = placedCityAnimals.size;
 
-    if (placedCityAnimals.size === 7) {
+    if (noteCard) {
+      noteCard.classList.remove('note-error');
+      noteCard.classList.add('note-success');
+    }
+    if (feedback) feedback.innerHTML = info.note;
+
+    const totalCityAnimals = Object.keys(cityAnimalInfo).length;
+    if (placedCityAnimals.size === totalCityAnimals) {
       markStageCompleted(3);
       playTone('fanfare');
+      if (feedback) {
+        feedback.innerHTML = `${info.note} 🎉 <strong>ყოჩაღ! თორმეტივე ბინადარი თავის სართულზე დააბინავე!</strong>`;
+      }
     }
   } else {
     playTone('error');
     zoneEl.classList.remove('wrong-shake');
     void zoneEl.offsetWidth;
     zoneEl.classList.add('wrong-shake');
+    if (noteCard) {
+      noteCard.classList.remove('note-success');
+      noteCard.classList.add('note-error');
+    }
+    if (info && feedback) feedback.innerHTML = info.wrongMsg;
   }
 }
 
-// ==================== STAGE 4: WEATHER & SOIL MOISTURE SIMULATOR ====================
+// ==================== STAGE 4: HABITAT SORTING ("RETURN HOME") ====================
 const simCreaturesInfo = {
-  black_beetle: {
-    name: 'შავი მიწის ხოჭო',
-    msg: '☀️ <strong>ეკო:</strong> „შავ მიწის ხოჭოებს მზიანი ამინდი, მშრალი და ფხვიერი მიწა მოსწონთ!“'
+  lizard_dry: {
+    zone: 'dry',
+    name: 'ხვლიკი',
+    iconHtml: '🦎',
+    note: '☀️ <strong>ხვლიკი:</strong> ქვეწარმავალია — სხეულის გასათბობად მზის სითბო სჭირდება, ამიტომ მზიან, მშრალ მიწასა და თბილ ქვებს ირჩევს.',
+    wrongMsg: '🤔 <strong>ხვლიკს</strong> გასათბობად მზე და მშრალი ზედაპირი სჭირდება — ის მშრალ და ფხვიერ ნიადაგზე დააბრუნე!'
   },
   field_beetle: {
+    zone: 'dry',
     name: 'მინდვრის ხოჭო',
-    msg: '☀️ <strong>ბითი:</strong> „მინდვრის ხოჭოც მშრალ და თბილ ნიადაგზე გამოდის სასეირნოდ!“'
+    iconHtml: '<img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-photo-icon" />',
+    note: '☀️ <strong>მინდვრის ხოჭო:</strong> მკვრივი ჯავშანი გამოშრობისგან იცავს, ამიტომ მზიან, მშრალ და ფხვიერ მიწაზე სწრაფად მოძრაობს და ნადირობს.',
+    wrongMsg: '🤔 <strong>მინდვრის ხოჭოს</strong> მშრალი და ფხვიერი ზედაპირი ურჩევნია — სცადე მშრალი და ფხვიერი ნიადაგი!'
   },
   ants_dry: {
-    name: '🐜 ჭიანჭველა',
-    msg: '☀️ <strong>ეკო:</strong> „მზიან ამინდში ჭიანჭველები მშრალ და ფხვიერ მიწაზე აქტიურად აგროვებენ საკვებს!“'
+    zone: 'dry',
+    name: 'ჭიანჭველა',
+    iconHtml: '🐜',
+    note: '☀️ <strong>ჭიანჭველა:</strong> მშრალ და ფხვიერ მიწაში იოლად თხრის გვირაბებს, რომ წვიმამ ბუდე არ დაუტბოროს, ზედაპირზე კი საკვებს აგროვებს.',
+    wrongMsg: '🤔 <strong>ჭიანჭველებს</strong> სისველე გვირაბებს უტბორავს — მათ მშრალი და ფხვიერი ნიადაგი სჭირდებათ!'
   },
-  snail_moist: {
-    name: '🐌 ლოკოკინა',
-    msg: '🌧️ <strong>ეკო:</strong> „წვიმის შემდეგ, როცა გარემო გრილი და ნესტიანია, ლოკოკინები სველ ფოთლებზე გამოდიან!“'
+  cricket_dry: {
+    zone: 'dry',
+    name: 'მინდვრის ჭრიჭინა',
+    iconHtml: '🦗',
+    note: '☀️ <strong>მინდვრის ჭრიჭინა:</strong> მზიან მინდორში, მშრალ და ფხვიერ მიწაში თხრის პატარა სოროს და თბილ ამინდში ხმამაღლა ჭრიჭინებს.',
+    wrongMsg: '🤔 <strong>მინდვრის ჭრიჭინა</strong> მზიან, მშრალ და ფხვიერ მიწაში იწყობს სოროს — სცადე მშრალი ზონა!'
+  },
+  tortoise_dry: {
+    zone: 'dry',
+    name: 'ხმელეთის კუ',
+    iconHtml: '🐢',
+    note: '☀️ <strong>ხმელეთის კუ:</strong> მზიანი, მშრალი მიწის ქვეწარმავალია — მზეზე თბება, კვერცხების დასადებად და გამოსაზამთრებლად კი ფხვიერ მიწას თხრის.',
+    wrongMsg: '🤔 <strong>ხმელეთის კუს</strong> მზე და მშრალი, ფხვიერი მიწა სჭირდება — ის მშრალ ნიადაგზე დააბრუნე!'
   },
   worm_moist: {
-    name: 'წვიმის ჭია (ჭიაყელა)',
-    msg: '🌧️ <strong>ბითი:</strong> „წვიმის ჭიებს სუნთქვისა და მოძრაობისთვის აუცილებლად გრილი და ნესტიანი მიწა სჭირდებათ!“'
+    zone: 'moist',
+    name: 'წვიმის ჭია',
+    iconHtml: '<img src="ჭიაყელა.jpg" alt="წვიმის ჭია" class="worm-photo-icon" />',
+    note: '🌧️ <strong>წვიმის ჭია (ჭიაყელა):</strong> კანით სუნთქავს, ამიტომ კანი სულ ტენიანი უნდა ჰქონდეს — სიცხეში ღრმა, გრილ და ნესტიან მიწაში ჩადის.',
+    wrongMsg: '🤔 <strong>წვიმის ჭიას</strong> მშრალ მიწაში კანი გამოუშრება და ვერ ისუნთქებს — გრილ და ნესტიან გარემოში გადაიყვანე!'
+  },
+  snail_moist: {
+    zone: 'moist',
+    name: 'ლოკოკინა',
+    iconHtml: '🐌',
+    note: '🌧️ <strong>ლოკოკინა:</strong> სრიალისა და გამოშრობისგან დასაცავად ტენი სჭირდება. სიცხეში ნიჟარაში იმალება, წვიმის შემდეგ კი სველ ფოთლებზე გამოდის.',
+    wrongMsg: '🤔 <strong>ლოკოკინას</strong> მშრალ მიწაზე სრიალი უჭირს — მას გრილი და ნესტიანი გარემო უხდება!'
+  },
+  millipede_moist: {
+    zone: 'moist',
+    name: 'მრავალფეხა',
+    iconHtml: `<svg viewBox="0 0 64 40" width="34" height="24" aria-hidden="true">
+      <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
+        <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
+        <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
+        <line x1="32" y1="22" x2="30" y2="32"/><line x1="35" y1="22" x2="34" y2="32"/>
+        <line x1="42" y1="23" x2="40" y2="33"/><line x1="45" y1="23" x2="44" y2="33"/>
+        <line x1="51" y1="24" x2="50" y2="34"/><line x1="54" y1="24" x2="55" y2="34"/>
+      </g>
+      <circle cx="13" cy="20" r="6" fill="#bf360c"/>
+      <circle cx="22" cy="18" r="6.5" fill="#d84315"/>
+      <circle cx="32" cy="17" r="6.5" fill="#e64a19"/>
+      <circle cx="42" cy="18" r="6.5" fill="#d84315"/>
+      <circle cx="51" cy="19" r="7" fill="#bf360c"/>
+      <path d="M56 15 Q61 9 63 11" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+      <path d="M57 18 Q62 15 63 18" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
+    </svg>`,
+    note: '🌧️ <strong>მრავალფეხა:</strong> სიმშრალეში სწრაფად კარგავს ტენს, ამიტომ გრილ და ნესტიან მიწაში, სველი ფოთლებისა და ქვების ქვეშ იმალება.',
+    wrongMsg: '🤔 <strong>მრავალფეხას</strong> მშრალი მიწა არ უხდება — ის გრილ და ნესტიან ნიადაგში დააბრუნე!'
   },
   hedgehog_moist: {
-    name: '🦔 ზღარბი',
-    msg: '🌧️ <strong>ეკო:</strong> „ზღარბსაც გრილი, ნესტიანი და ფოთლებით დაფარული ტყისპირა გარემო ურჩევნია!“'
+    zone: 'moist',
+    name: 'ზღარბი',
+    iconHtml: '🦔',
+    note: '🌧️ <strong>ზღარბი:</strong> გრილ, ჩრდილიან და ტენიან ტყისპირა ადგილებს ირჩევს, სადაც სველ მიწაზე ჭიებსა და ლოკოკინებს პოულობს საკვებად.',
+    wrongMsg: '🤔 <strong>ზღარბს</strong> გრილი, ჩრდილიანი და ტენიანი გარემო ურჩევნია, სადაც ბევრი საკვებია!'
   },
   mouse_moist: {
-    name: '🐭 მინდვრის თაგვი',
-    msg: '🌧️ <strong>ბითი:</strong> „მინდვრის თაგვიც გრილ და ნესტიან გარემოში, თავის ბალახოვან სოროში გრძნობს თავს მყუდროდ!“'
+    zone: 'moist',
+    name: 'მინდვრის თაგვი',
+    iconHtml: '🐭',
+    note: '🌧️ <strong>მინდვრის თაგვი:</strong> გრილ, მწვანე და ზომიერად ტენიან მინდვრებში ცხოვრობს, სადაც ბევრი მარცვალია, სიცხისას კი მიწისქვეშა გრილ, ბალახით მოფენილ სოროში აფარებს თავს.',
+    wrongMsg: '🤔 <strong>მინდვრის თაგვი</strong> გრილ, მწვანე და ზომიერად ტენიან გარემოს ირჩევს თავისი ბალახოვანი სოროსთვის!'
   }
 };
 
+let selectedHabitatCreature = null;
 let observedSimCreatures = new Set();
 
-function setWeatherMode(mode) {
+function selectHabitatCreature(tokenEl, creatureId) {
+  if (observedSimCreatures.has(creatureId)) return;
   playTone('click');
-  const scene = document.getElementById('weatherSimScene');
-  const btnDry = document.getElementById('btnWeatherDry');
-  const btnMoist = document.getElementById('btnWeatherMoist');
-  const pill = document.getElementById('weatherStatePill');
-  const feedback = document.getElementById('sortFeedbackText');
+  selectedHabitatCreature = creatureId;
 
-  if (mode === 'dry') {
-    scene.classList.remove('mode-moist');
-    scene.classList.add('mode-dry');
-    btnDry.classList.add('active');
-    btnMoist.classList.remove('active');
-    pill.textContent = '☀️ მიწა მშრალი და ფხვიერია — დააწკაპუნე გამოჩენილ ბინადრებს!';
-    feedback.innerHTML =
-      '☀️ ჩართულია <strong>მზიანი ამინდი</strong>! ნახე, ვინ გამოვიდა მშრალ და ფხვიერ მიწაზე — დააწკაპუნე მათ!';
-  } else {
-    scene.classList.remove('mode-dry');
-    scene.classList.add('mode-moist');
-    btnMoist.classList.add('active');
-    btnDry.classList.remove('active');
-    pill.textContent = '🌧️ გარემო გრილი და ნესტიანია — დააწკაპუნე გამოჩენილ ბინადრებს!';
-    feedback.innerHTML =
-      '🌧️ ჩართულია <strong>წვიმიანი ამინდი</strong>! წვიმის ჭიები, ლოკოკინა, თაგვი და ზღარბი გამოჩნდნენ — დააწკაპუნე მათ!';
+  document.querySelectorAll('.habitat-token').forEach((el) => el.classList.remove('selected'));
+  tokenEl.classList.add('selected');
+
+  const info = simCreaturesInfo[creatureId];
+  const feedback = document.getElementById('sortFeedbackText');
+  if (info && feedback) {
+    feedback.innerHTML = `არჩეულია: <strong>${info.name}</strong> — ახლა დააწკაპუნე შესაბამის გარემოს (<strong>☀️ მშრალი და ფხვიერი</strong> ან <strong>🌧️ გრილი და ნესტიანი</strong>)!`;
   }
 }
 
-function observeSimCreature(btnEl, creatureId) {
+function dragHabitatCreature(e, creatureId) {
+  if (observedSimCreatures.has(creatureId)) {
+    e.preventDefault();
+    return;
+  }
+  selectedHabitatCreature = creatureId;
+  e.dataTransfer.setData('text/plain', creatureId);
+  document.querySelectorAll('.habitat-token').forEach((el) => {
+    el.classList.toggle('selected', el.getAttribute('data-cid') === creatureId);
+  });
+}
+
+function allowHabitatDrop(e, zoneEl) {
+  e.preventDefault();
+  zoneEl.classList.add('drag-over');
+}
+
+function leaveHabitatDrop(zoneEl) {
+  zoneEl.classList.remove('drag-over');
+}
+
+function dropOnHabitatZone(e, zoneEl, zoneKey) {
+  e.preventDefault();
+  zoneEl.classList.remove('drag-over');
+  const draggedId = e.dataTransfer.getData('text/plain') || selectedHabitatCreature;
+  if (draggedId) {
+    selectedHabitatCreature = draggedId;
+    placeInHabitatZone(zoneEl, zoneKey);
+  }
+}
+
+function placeInHabitatZone(zoneEl, zoneKey) {
+  const feedback = document.getElementById('sortFeedbackText');
+  const noteCard = document.getElementById('explorerNoteCard');
+
+  if (!selectedHabitatCreature) {
+    playTone('error');
+    if (feedback) {
+      feedback.innerHTML = '👆 ჯერ ზედა ზოლიდან აირჩიე ბინადარი, შემდეგ კი დააწკაპუნე მშრალ ან ნესტიან ნიადაგს!';
+    }
+    return;
+  }
+
+  const creatureId = selectedHabitatCreature;
+  if (observedSimCreatures.has(creatureId)) return;
+
   const info = simCreaturesInfo[creatureId];
   if (!info) return;
 
-  const checkEl = btnEl.querySelector('.sim-c-check');
-  const feedback = document.getElementById('sortFeedbackText');
-  feedback.innerHTML = info.msg;
-
-  if (!observedSimCreatures.has(creatureId)) {
-    observedSimCreatures.add(creatureId);
-    btnEl.classList.add('observed');
-    if (checkEl) checkEl.textContent = '✅';
+  if (info.zone === zoneKey) {
     playTone('success');
+    observedSimCreatures.add(creatureId);
+
+    const listEl = document.getElementById(`habitatPlaced-${zoneKey}`);
+    if (listEl) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'habitat-placed-chip';
+      chip.setAttribute('data-tooltip', info.name);
+      chip.setAttribute('aria-label', info.name);
+      chip.innerHTML = `<span class="hpc-icon">${info.iconHtml}</span>`;
+      chip.onclick = (ev) => {
+        ev.stopPropagation();
+        playTone('click');
+        feedback.innerHTML = info.note;
+      };
+      listEl.appendChild(chip);
+    }
+
+    const tokenEl = document.querySelector(`.habitat-token[data-cid="${creatureId}"]`);
+    if (tokenEl) {
+      tokenEl.classList.remove('selected');
+      tokenEl.classList.add('placed');
+    }
+
+    selectedHabitatCreature = null;
     document.getElementById('sortedCount').textContent = observedSimCreatures.size;
 
-    if (observedSimCreatures.size === 7) {
+    if (noteCard) {
+      noteCard.classList.remove('note-error');
+      noteCard.classList.add('note-success');
+    }
+    feedback.innerHTML = info.note;
+
+    const totalHabitatCreatures = Object.keys(simCreaturesInfo).length;
+    if (observedSimCreatures.size === totalHabitatCreatures) {
       markStageCompleted(4);
       playTone('fanfare');
-      feedback.innerHTML =
-        '🎉 <strong>ყოჩაღ!</strong> შენ ორივე ამინდი გამოცადე და შვიდივე ბინადარს დააკვირდი მშრალ და ნესტიან გარემოში!';
+      feedback.innerHTML = `${info.note} <br/>🎉 <strong>ათივე ბინადარი თავის სახლშია!</strong> დააწკაპუნე ნებისმიერ ბინადარს ჩანაწერის ხელახლა წასაკითხად.`;
     }
   } else {
-    playTone('click');
+    playTone('error');
+    zoneEl.classList.remove('wrong-shake');
+    void zoneEl.offsetWidth;
+    zoneEl.classList.add('wrong-shake');
+    if (noteCard) {
+      noteCard.classList.remove('note-success');
+      noteCard.classList.add('note-error');
+    }
+    feedback.innerHTML = info.wrongMsg;
   }
 }
 
@@ -689,11 +923,12 @@ function renderQuizQuestion() {
 
   const optsBox = document.getElementById('quizOptionsBox');
   optsBox.innerHTML = '';
+  const letters = ['ა', 'ბ', 'გ', 'დ'];
 
   item.options.forEach((optText, idx) => {
     const btn = document.createElement('button');
     btn.className = 'quiz-opt-btn';
-    btn.textContent = optText;
+    btn.innerHTML = `<span class="quiz-opt-letter">${letters[idx] || idx + 1}</span><span class="quiz-opt-text">${optText}</span>`;
     btn.onclick = () => checkQuizAnswer(btn, idx, item);
     optsBox.appendChild(btn);
   });
@@ -788,7 +1023,7 @@ async function downloadCertificateImage() {
 
   // Title: სერთიფიკატი
   ctx.fillStyle = '#1b5e20';
-  ctx.font = '900 64px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '900 64px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('სერთიფიკატი', canvas.width / 2, 300);
 
@@ -803,12 +1038,12 @@ async function downloadCertificateImage() {
   ctx.fill();
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 32px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '900 32px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText('🏆 „ნიადაგის ბინადრების მკვლევარები“', canvas.width / 2, badgeY + 45);
 
   // Recipient label
   ctx.fillStyle = '#37474f';
-  ctx.font = '700 26px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '700 26px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText('გადაეცემა ნორჩ მკვლევარს:', canvas.width / 2, 485);
 
   // Recipient Name or Blank Line for printing
@@ -817,7 +1052,7 @@ async function downloadCertificateImage() {
 
   if (studentName) {
     ctx.fillStyle = '#1b5e20';
-    ctx.font = '900 48px "Segoe UI", "Sylfaen", sans-serif';
+    ctx.font = '900 48px "Noto Sans Georgian", "Segoe UI", sans-serif';
     ctx.fillText(studentName, canvas.width / 2, 565);
   }
 
@@ -831,7 +1066,7 @@ async function downloadCertificateImage() {
 
   // Body paragraph
   ctx.fillStyle = '#263238';
-  ctx.font = '600 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '600 28px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText(
     'ეკოსა და ბითისთან ერთად „მიწისქვეშა ქალაქის“ წარმატებით გამოკვლევისთვის,',
     canvas.width / 2,
@@ -853,10 +1088,10 @@ async function downloadCertificateImage() {
 
   // Left signature
   ctx.fillStyle = '#1b5e20';
-  ctx.font = '800 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '800 28px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText('ეკო და ბითი', 310, 930);
   ctx.fillStyle = '#546e7a';
-  ctx.font = '600 22px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '600 22px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText('ფუსფუსა სახელოსნოს მეგზურები', 310, 965);
 
   // Center stars pill
@@ -873,16 +1108,16 @@ async function downloadCertificateImage() {
   ctx.stroke();
 
   ctx.fillStyle = '#e65100';
-  ctx.font = '900 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '900 28px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText(`⭐ დაგროვებული ვარსკვლავები: ${stars || 5} / 5`, canvas.width / 2, starY + 42);
 
   // Right Date
   const dateStr = new Date().toLocaleDateString('ka-GE');
   ctx.fillStyle = '#1b5e20';
-  ctx.font = '800 28px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '800 28px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText(dateStr, canvas.width - 310, 930);
   ctx.fillStyle = '#546e7a';
-  ctx.font = '600 22px "Segoe UI", "Sylfaen", sans-serif';
+  ctx.font = '600 22px "Noto Sans Georgian", "Segoe UI", sans-serif';
   ctx.fillText('გაცემის თარიღი', canvas.width - 310, 965);
 
   // Trigger download

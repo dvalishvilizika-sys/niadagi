@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ფუსფუსა სახელოსნო — ნიადაგის ბინადრები</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -40,8 +43,9 @@
 
     <div class="header-controls">
       <div class="score-pill" title="დაგროვებული ვარსკვლავები">
-        <span>⭐</span>
+        <span class="star-emoji">⭐</span>
         <span id="starCount">0</span>
+        <span class="star-max">/ 5</span>
       </div>
       <button class="icon-btn" id="soundToggleBtn" onclick="toggleSound()" title="ხმოვანი ეფექტების ჩართვა/გამორთვა">
         🔊
@@ -83,9 +87,9 @@
                 <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
               </div>
               <div class="mascot-speech">
-                <h3>მზად ხარ მიწისქვეშა სამყაროში სამოგზაუროდ? 🌱🤖</h3>
+                <h3>ბუნებას ფრთხილად და უხმაუროდ ვაკვირდებით! 🌱🤖</h3>
                 <p id="stage1Speech">
-                  ჯერ ჩართე მისასალმებელი ვიდეო, შემდეგ კი მოვემზადოთ ექსპედიციისთვის: აირჩიე მიწის საკვლევი 6 სწორი ხელსაწყო!
+                  ჯერ ჩართე ვიდეო, შემდეგ კი ჩაალაგე მკვლევრის ზურგჩანთაში 6 ნამდვილი საველე ხელსაწყო — ისე, რომ ბინადრები არ დავაფრთხოთ!
                 </p>
               </div>
             </div>
@@ -93,14 +97,14 @@
             <!-- Interactive Explorer Backpack Tool Selection with Distractors -->
             <div class="tools-selector">
               <div class="section-mini-header">
-                <h4>🎒 ჩაალაგე მკვლევრის ზურგჩანთა! აირჩიე მხოლოდ 6 საჭირო ხელსაწყო (ფრთხილად, 3 ზედმეტია!):</h4>
+                <h4>🎒 აირჩიე 6 ნამდვილი საველე ხელსაწყო (ფრთხილად, 3 ზედმეტია!):</h4>
               </div>
               <div class="tool-options">
                 <button class="tool-card-btn" onclick="selectExplorerTool(this, 'lupa')">
                   <span class="tool-emoji">🔍</span>
                   <div class="tool-meta">
-                    <strong>ჭკვიანი ლუპა</strong>
-                    <span>პატარა ბინადრების გასადიდებლად!</span>
+                    <strong>ლუპა</strong>
+                    <span>პატარა ბინადრების ახლოდან დასაკვირვებლად!</span>
                   </div>
                   <span class="tool-badge"></span>
                 </button>
@@ -134,16 +138,16 @@
                   </span>
                   <div class="tool-meta">
                     <strong>პატარა ნიჩაბი</strong>
-                    <span>მიწის ფრთხილად გასათხრელად!</span>
+                    <span>მიწის ფრთხილად გადასაწევად!</span>
                   </div>
                   <span class="tool-badge"></span>
                 </button>
 
-                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'detector')">
-                  <span class="tool-emoji">📡</span>
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'camera')">
+                  <span class="tool-emoji">📷</span>
                   <div class="tool-meta">
-                    <strong>მიწისქვეშა დეტექტორი</strong>
-                    <span>სოროებისა და ხმების საპოვნელად!</span>
+                    <strong>ფოტოაპარატი</strong>
+                    <span>ბინადრების შორიდან გადასაღებად!</span>
                   </div>
                   <span class="tool-badge"></span>
                 </button>
@@ -161,16 +165,16 @@
                   <span class="tool-emoji">🤿</span>
                   <div class="tool-meta">
                     <strong>საცურაო აღჭურვილობა</strong>
-                    <span>წყალში საცურაოდაა, მიწაში არა!</span>
+                    <span>წყალში საცურაოდაა, მიწაზე არა!</span>
                   </div>
                   <span class="tool-badge"></span>
                 </button>
 
-                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'flashlight')">
-                  <span class="tool-emoji">🔦</span>
+                <button class="tool-card-btn" onclick="selectExplorerTool(this, 'ruler')">
+                  <span class="tool-emoji">📏</span>
                   <div class="tool-meta">
-                    <strong>ფარანი სოროებისთვის</strong>
-                    <span>ბნელი გვირაბების გასანათებლად!</span>
+                    <strong>სახაზავი</strong>
+                    <span>ბინადრებისა და ნაკვალევის გასაზომად!</span>
                   </div>
                   <span class="tool-badge"></span>
                 </button>
@@ -241,9 +245,9 @@
                 <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
               </div>
               <div class="mascot-speech">
-                <h3>🔍 მისია: გამოიყენე ბითის სკანერი!</h3>
+                <h3>🔍 ნიადაგი ცოცხალი სამყაროა — ყველას თავისი საქმე აქვს!</h3>
                 <p>
-                  უყურე ვიდეოს, შემდეგ კი დააწკაპუნე ნიადაგზე მანათობელ წერტილებს (<strong>?</strong>), რათა აღმოაჩინო მიწაში დამალული 10 ბინადარი!
+                  უყურე ვიდეოს, შემდეგ კი დააწკაპუნე მანათობელ წერტილებს (<strong>?</strong>) და აღმოაჩინე ნიადაგის 10 ნამდვილი ბინადარი!
                 </p>
               </div>
             </div>
@@ -254,8 +258,9 @@
                 <div class="grass-strip"></div>
                 <div class="scanner-lens" id="scannerLens"></div>
 
-                <!-- 10 Hotspots -->
-                <div class="scanner-hotspot" style="top: 34%; left: 86%;" onclick="discoverCreature(this, 0)">
+                <!-- 10 Hotspots placed at biologically accurate soil layers -->
+                <!-- Soft Soil & Roots Layer -->
+                <div class="scanner-hotspot" style="top: 50%; left: 87%;" onclick="discoverCreature(this, 0)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji"><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-photo-icon" /></span>
@@ -263,7 +268,8 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 25%; left: 14%;" onclick="discoverCreature(this, 1)">
+                <!-- Surface & Leaf Litter Layer -->
+                <div class="scanner-hotspot" style="top: 25%; left: 13%;" onclick="discoverCreature(this, 1)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji">🐌</span>
@@ -271,7 +277,8 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 52%; left: 46%;" onclick="discoverCreature(this, 2)">
+                <!-- Soft Soil & Roots Layer -->
+                <div class="scanner-hotspot" style="top: 52%; left: 42%;" onclick="discoverCreature(this, 2)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji">🐜</span>
@@ -279,7 +286,8 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 80%; left: 18%;" onclick="discoverCreature(this, 3)">
+                <!-- Soft Soil & Roots Layer -->
+                <div class="scanner-hotspot" style="top: 54%; left: 65%;" onclick="discoverCreature(this, 3)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji">🐛</span>
@@ -287,7 +295,8 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 80%; left: 82%;" onclick="discoverCreature(this, 4)">
+                <!-- Deep Underground Burrow Layer -->
+                <div class="scanner-hotspot" style="top: 80%; left: 72%;" onclick="discoverCreature(this, 4)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji"><img src="თხუნელა.png" alt="თხუნელა" class="worm-photo-icon" /></span>
@@ -295,12 +304,13 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 54%; left: 18%;" onclick="discoverCreature(this, 5)">
+                <!-- Upper Soil / Under Leaves Layer -->
+                <div class="scanner-hotspot" style="top: 50%; left: 16%;" onclick="discoverCreature(this, 5)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji">
                       <svg viewBox="0 0 64 40" width="32" height="22" aria-hidden="true">
-                        <!-- Millipede / Centipede Legs -->
+                        <!-- Millipede Legs -->
                         <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
                           <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
                           <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
@@ -324,23 +334,26 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 55%; left: 74%;" onclick="discoverCreature(this, 6)">
+                <!-- Surface & Loose Soil Layer -->
+                <div class="scanner-hotspot" style="top: 25%; left: 62%;" onclick="discoverCreature(this, 6)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
-                    <span class="creature-emoji">🦗</span>
-                    <span class="creature-label">მიწის კალია / კოკორი</span>
+                    <span class="creature-emoji"><img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-photo-icon" /></span>
+                    <span class="creature-label">მინდვრის ხოჭო</span>
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 27%; left: 39%;" onclick="discoverCreature(this, 7)">
+                <!-- Surface / Sunny Crevices Layer (Reptile) -->
+                <div class="scanner-hotspot" style="top: 25%; left: 37%;" onclick="discoverCreature(this, 7)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
-                    <span class="creature-emoji">🐍</span>
-                    <span class="creature-label">მიწის მცოცავი გველი</span>
+                    <span class="creature-emoji">🦎</span>
+                    <span class="creature-label">ხვლიკი</span>
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 78%; left: 50%;" onclick="discoverCreature(this, 8)">
+                <!-- Deep Underground Burrow Layer -->
+                <div class="scanner-hotspot" style="top: 80%; left: 30%;" onclick="discoverCreature(this, 8)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
                     <span class="creature-emoji">🐭</span>
@@ -348,11 +361,12 @@
                   </div>
                 </div>
 
-                <div class="scanner-hotspot" style="top: 26%; left: 63%;" onclick="discoverCreature(this, 9)">
+                <!-- Surface & Leaf Litter Layer -->
+                <div class="scanner-hotspot" style="top: 25%; left: 86%;" onclick="discoverCreature(this, 9)">
                   <span class="spot-question">?</span>
                   <div class="spot-creature">
-                    <span class="creature-emoji">🕷️</span>
-                    <span class="creature-label">მიწის ობობა</span>
+                    <span class="creature-emoji">🦔</span>
+                    <span class="creature-label">ზღარბი</span>
                   </div>
                 </div>
               </div>
@@ -425,36 +439,69 @@
                 <h2>ვინ სად ცხოვრობს?</h2>
               </div>
               <div class="stage-progress-counter">
-                <span id="cityPlacedCount">0</span> / 7
+                <span id="cityPlacedCount">0</span> / 12
               </div>
             </div>
 
-            <!-- Purely Visual Draggable Animal Tokens (Shuffled Order) -->
+            <!-- Visual Draggable Animal Tokens (12 Real Inhabitants across 3 Floors) -->
             <div class="animal-tray visual-only-tray" id="cityAnimalTray">
-              <div class="animal-token visual-token" draggable="true" data-animal="mole" title="თხუნელა" ondragstart="dragCityAnimal(event, 'mole')" onclick="selectCityAnimal(this, 'mole')">
+              <div class="animal-token visual-token" draggable="true" data-animal="mole" data-tooltip="თხუნელა" aria-label="თხუნელა" ondragstart="dragCityAnimal(event, 'mole')" onclick="selectCityAnimal(this, 'mole')">
                 <span><img src="თხუნელა.png" alt="თხუნელა" class="worm-token-img" /></span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="snail" title="ლოკოკინა" ondragstart="dragCityAnimal(event, 'snail')" onclick="selectCityAnimal(this, 'snail')">
+              <div class="animal-token visual-token" draggable="true" data-animal="snail" data-tooltip="ლოკოკინა" aria-label="ლოკოკინა" ondragstart="dragCityAnimal(event, 'snail')" onclick="selectCityAnimal(this, 'snail')">
                 <span>🐌</span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="ants" title="ჭიანჭველა" ondragstart="dragCityAnimal(event, 'ants')" onclick="selectCityAnimal(this, 'ants')">
+              <div class="animal-token visual-token" draggable="true" data-animal="ants" data-tooltip="ჭიანჭველა" aria-label="ჭიანჭველა" ondragstart="dragCityAnimal(event, 'ants')" onclick="selectCityAnimal(this, 'ants')">
                 <span>🐜</span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="mouse" title="მინდვრის თაგვი" ondragstart="dragCityAnimal(event, 'mouse')" onclick="selectCityAnimal(this, 'mouse')">
-                <span>🐭</span>
+              <div class="animal-token visual-token" draggable="true" data-animal="fox" data-tooltip="მელა" aria-label="მელა" ondragstart="dragCityAnimal(event, 'fox')" onclick="selectCityAnimal(this, 'fox')">
+                <span>🦊</span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="worm" title="ჭიაყელა" ondragstart="dragCityAnimal(event, 'worm')" onclick="selectCityAnimal(this, 'worm')">
+              <div class="animal-token visual-token" draggable="true" data-animal="beetle" data-tooltip="მინდვრის ხოჭო" aria-label="მინდვრის ხოჭო" ondragstart="dragCityAnimal(event, 'beetle')" onclick="selectCityAnimal(this, 'beetle')">
+                <span><img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-token-img" /></span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="worm" data-tooltip="ჭიაყელა" aria-label="ჭიაყელა" ondragstart="dragCityAnimal(event, 'worm')" onclick="selectCityAnimal(this, 'worm')">
                 <span><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-token-img" /></span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="spider" title="მიწის ობობა" ondragstart="dragCityAnimal(event, 'spider')" onclick="selectCityAnimal(this, 'spider')">
-                <span>🕷️</span>
+              <div class="animal-token visual-token" draggable="true" data-animal="lizard" data-tooltip="ხვლიკი" aria-label="ხვლიკი" ondragstart="dragCityAnimal(event, 'lizard')" onclick="selectCityAnimal(this, 'lizard')">
+                <span>🦎</span>
               </div>
-              <div class="animal-token visual-token" draggable="true" data-animal="larva" title="ხოჭოს მატლი" ondragstart="dragCityAnimal(event, 'larva')" onclick="selectCityAnimal(this, 'larva')">
+              <div class="animal-token visual-token" draggable="true" data-animal="mouse" data-tooltip="მინდვრის თაგვი" aria-label="მინდვრის თაგვი" ondragstart="dragCityAnimal(event, 'mouse')" onclick="selectCityAnimal(this, 'mouse')">
+                <span>🐭</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="millipede" data-tooltip="მრავალფეხა" aria-label="მრავალფეხა" ondragstart="dragCityAnimal(event, 'millipede')" onclick="selectCityAnimal(this, 'millipede')">
+                <span>
+                  <svg viewBox="0 0 64 40" width="32" height="22" aria-hidden="true">
+                    <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
+                      <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
+                      <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
+                      <line x1="32" y1="22" x2="30" y2="32"/><line x1="35" y1="22" x2="34" y2="32"/>
+                      <line x1="42" y1="23" x2="40" y2="33"/><line x1="45" y1="23" x2="44" y2="33"/>
+                      <line x1="51" y1="24" x2="50" y2="34"/><line x1="54" y1="24" x2="55" y2="34"/>
+                    </g>
+                    <circle cx="13" cy="20" r="6" fill="#bf360c"/>
+                    <circle cx="22" cy="18" r="6.5" fill="#d84315"/>
+                    <circle cx="32" cy="17" r="6.5" fill="#e64a19"/>
+                    <circle cx="42" cy="18" r="6.5" fill="#d84315"/>
+                    <circle cx="51" cy="19" r="7" fill="#bf360c"/>
+                    <path d="M56 15 Q61 9 63 11" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M57 18 Q62 15 63 18" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="hedgehog" data-tooltip="ზღარბი" aria-label="ზღარბი" ondragstart="dragCityAnimal(event, 'hedgehog')" onclick="selectCityAnimal(this, 'hedgehog')">
+                <span>🦔</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="badger" data-tooltip="მაჩვი" aria-label="მაჩვი" ondragstart="dragCityAnimal(event, 'badger')" onclick="selectCityAnimal(this, 'badger')">
+                <span>🦡</span>
+              </div>
+              <div class="animal-token visual-token" draggable="true" data-animal="larva" data-tooltip="ხოჭოს მატლი" aria-label="ხოჭოს მატლი" ondragstart="dragCityAnimal(event, 'larva')" onclick="selectCityAnimal(this, 'larva')">
                 <span>🐛</span>
               </div>
             </div>
 
-            <!-- Interactive 3-Column Photo Board (ქალაქი.jpg) — Visual Only -->
+            <!-- Interactive 3-Column Photo Board (ქალაქი.jpg) -->
             <div class="city-photo-board">
               <img src="ქალაქი.jpg" alt="მიწისქვეშა ქალაქის ფენები" class="city-bg-img" draggable="false" />
               <div class="city-zones-overlay">
@@ -496,6 +543,14 @@
               </div>
             </div>
 
+            <!-- Compact 1-Line Explorer's Note for Stage 3 -->
+            <div class="explorer-note-card" id="cityNoteCard">
+              <div class="explorer-note-tag">📓 მკვლევრის ჩანაწერი</div>
+              <p id="cityFeedbackText">
+                ბუნების კანონი: <strong>ვისაც როგორი სხეული აქვს, იმ სართულზე ცხოვრობს!</strong> აირჩიე ბინადარი და მოათავსე მის სართულზე.
+              </p>
+            </div>
+
             <div class="stage-footer-nav">
               <button class="nav-action-btn prev-btn" onclick="goToStage(2)">⬅ უკან</button>
               <button class="nav-action-btn next-btn" onclick="goToStage(4)">
@@ -522,128 +577,206 @@
             </div>
           </div>
 
-          <!-- Weather & Soil Moisture Simulator Column -->
+          <!-- Habitat Sorting ("Return Home") Column -->
           <div class="stage-right-col">
             <div class="stage-header-banner">
               <div class="stage-header-left">
-                <span class="stage-badge">ეტაპი 4 • სიმულატორი</span>
-                <h2>ამინდისა და ტენიანობის სიმულატორი ☀️🌧️</h2>
+                <span class="stage-badge">ეტაპი 4 • გარემო</span>
+                <h2>დააბრუნე ბინადრები თავიანთ გარემოში ☀️🌧️</h2>
               </div>
               <div class="stage-progress-counter">
-                აღმოჩენილია: <span id="sortedCount">0</span> / 7
+                დაბინავებულია: <span id="sortedCount">0</span> / 10
               </div>
             </div>
 
-            <div class="mascots-banner">
-              <div class="mascot-avatars">
-                <img src="დედამიწა.png" alt="ეკო" class="mascot-img" />
-                <img src="ტექნოლოგია.png" alt="ბითი" class="mascot-img" />
-              </div>
-              <div class="mascot-speech">
-                <h3>☀️🌧️ შეცვალე ამინდი და დააწკაპუნე გამოჩენილ ბინადრებს!</h3>
-                <p id="sortFeedbackText">
-                  ჩართე ხან <strong>☀️ მზიანი ამინდი</strong>, ხან <strong>🌧️ წვიმიანი ამინდი</strong> და დააწკაპუნე ნიადაგში გამოჩენილ ბინადრებს!
-                </p>
-              </div>
-            </div>
-
-            <!-- Weather Mode Switcher Buttons -->
-            <div class="weather-controls-bar">
-              <button class="weather-mode-btn sun-btn active" id="btnWeatherDry" onclick="setWeatherMode('dry')">
-                <span class="w-icon">☀️</span>
-                <div>
-                  <strong>მზიანი ამინდი</strong>
-                  <span>მშრალი და ფხვიერი მიწა</span>
-                </div>
+            <!-- Tray of 10 Soil Creatures to Sort (Visual Tokens — Name on Hover) -->
+            <div class="habitat-sort-tray" id="habitatSortTray">
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="worm_moist"
+                data-tooltip="წვიმის ჭია"
+                aria-label="წვიმის ჭია"
+                onclick="selectHabitatCreature(this, 'worm_moist')"
+                ondragstart="dragHabitatCreature(event, 'worm_moist')"
+              >
+                <span class="h-token-icon"><img src="ჭიაყელა.jpg" alt="წვიმის ჭია" class="worm-token-img" /></span>
               </button>
-              <button class="weather-mode-btn rain-btn" id="btnWeatherMoist" onclick="setWeatherMode('moist')">
-                <span class="w-icon">🌧️</span>
-                <div>
-                  <strong>წვიმიანი ამინდი</strong>
-                  <span>გრილი და ნესტიანი გარემო</span>
-                </div>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="lizard_dry"
+                data-tooltip="ხვლიკი"
+                aria-label="ხვლიკი"
+                onclick="selectHabitatCreature(this, 'lizard_dry')"
+                ondragstart="dragHabitatCreature(event, 'lizard_dry')"
+              >
+                <span class="h-token-icon">🦎</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="snail_moist"
+                data-tooltip="ლოკოკინა"
+                aria-label="ლოკოკინა"
+                onclick="selectHabitatCreature(this, 'snail_moist')"
+                ondragstart="dragHabitatCreature(event, 'snail_moist')"
+              >
+                <span class="h-token-icon">🐌</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="field_beetle"
+                data-tooltip="მინდვრის ხოჭო"
+                aria-label="მინდვრის ხოჭო"
+                onclick="selectHabitatCreature(this, 'field_beetle')"
+                ondragstart="dragHabitatCreature(event, 'field_beetle')"
+              >
+                <span class="h-token-icon"><img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-token-img" /></span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="millipede_moist"
+                data-tooltip="მრავალფეხა"
+                aria-label="მრავალფეხა"
+                onclick="selectHabitatCreature(this, 'millipede_moist')"
+                ondragstart="dragHabitatCreature(event, 'millipede_moist')"
+              >
+                <span class="h-token-icon">
+                  <svg viewBox="0 0 64 40" width="32" height="22" aria-hidden="true">
+                    <g stroke="#5d4037" stroke-width="2" stroke-linecap="round">
+                      <line x1="12" y1="24" x2="9" y2="34"/><line x1="15" y1="24" x2="14" y2="34"/>
+                      <line x1="22" y1="23" x2="20" y2="33"/><line x1="25" y1="23" x2="24" y2="33"/>
+                      <line x1="32" y1="22" x2="30" y2="32"/><line x1="35" y1="22" x2="34" y2="32"/>
+                      <line x1="42" y1="23" x2="40" y2="33"/><line x1="45" y1="23" x2="44" y2="33"/>
+                      <line x1="51" y1="24" x2="50" y2="34"/><line x1="54" y1="24" x2="55" y2="34"/>
+                    </g>
+                    <circle cx="13" cy="20" r="6" fill="#bf360c"/>
+                    <circle cx="22" cy="18" r="6.5" fill="#d84315"/>
+                    <circle cx="32" cy="17" r="6.5" fill="#e64a19"/>
+                    <circle cx="42" cy="18" r="6.5" fill="#d84315"/>
+                    <circle cx="51" cy="19" r="7" fill="#bf360c"/>
+                    <path d="M56 15 Q61 9 63 11" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M57 18 Q62 15 63 18" fill="none" stroke="#bf360c" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="53.5" cy="17.5" r="1.5" fill="#fff"/>
+                  </svg>
+                </span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="tortoise_dry"
+                data-tooltip="ხმელეთის კუ"
+                aria-label="ხმელეთის კუ"
+                onclick="selectHabitatCreature(this, 'tortoise_dry')"
+                ondragstart="dragHabitatCreature(event, 'tortoise_dry')"
+              >
+                <span class="h-token-icon">🐢</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="hedgehog_moist"
+                data-tooltip="ზღარბი"
+                aria-label="ზღარბი"
+                onclick="selectHabitatCreature(this, 'hedgehog_moist')"
+                ondragstart="dragHabitatCreature(event, 'hedgehog_moist')"
+              >
+                <span class="h-token-icon">🦔</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="ants_dry"
+                data-tooltip="ჭიანჭველა"
+                aria-label="ჭიანჭველა"
+                onclick="selectHabitatCreature(this, 'ants_dry')"
+                ondragstart="dragHabitatCreature(event, 'ants_dry')"
+              >
+                <span class="h-token-icon">🐜</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="mouse_moist"
+                data-tooltip="მინდვრის თაგვი"
+                aria-label="მინდვრის თაგვი"
+                onclick="selectHabitatCreature(this, 'mouse_moist')"
+                ondragstart="dragHabitatCreature(event, 'mouse_moist')"
+              >
+                <span class="h-token-icon">🐭</span>
+              </button>
+
+              <button
+                class="habitat-token"
+                draggable="true"
+                data-cid="cricket_dry"
+                data-tooltip="მინდვრის ჭრიჭინა"
+                aria-label="მინდვრის ჭრიჭინა"
+                onclick="selectHabitatCreature(this, 'cricket_dry')"
+                ondragstart="dragHabitatCreature(event, 'cricket_dry')"
+              >
+                <span class="h-token-icon">🦗</span>
               </button>
             </div>
 
-            <!-- Interactive Animated Weather & Soil Scene -->
-            <div class="weather-sim-scene mode-dry" id="weatherSimScene">
-              <!-- Sky Layer -->
-              <div class="sim-sky">
-                <div class="sim-sun">☀️</div>
-                <div class="sim-clouds">
-                  <span class="cloud-icon">🌧️</span>
-                  <span class="cloud-icon">☁️</span>
-                  <span class="cloud-icon">🌧️</span>
+            <!-- Two Clean Habitat Drop Zones: Dry & Loose vs. Cool & Moist -->
+            <div class="habitat-zones-grid">
+              <!-- Zone 1: Dry & Loose Soil -->
+              <div
+                class="habitat-zone zone-dry"
+                id="habitatZoneDry"
+                onclick="placeInHabitatZone(this, 'dry')"
+                ondragover="allowHabitatDrop(event, this)"
+                ondragleave="leaveHabitatDrop(this)"
+                ondrop="dropOnHabitatZone(event, this, 'dry')"
+              >
+                <div class="habitat-zone-header">
+                  <span class="hz-weather-icon">☀️</span>
+                  <div class="hz-title-box">
+                    <h3>მშრალი და ფხვიერი ნიადაგი</h3>
+                    <span>მზიანი, თბილი და ფხვიერი მიწის ზედაპირი</span>
+                  </div>
                 </div>
-                <div class="sim-raindrops">
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-                <div class="weather-state-pill" id="weatherStatePill">
-                  ☀️ მიწა გამშრალი და ფხვიერია — დააწკაპუნე ბინადრებს!
-                </div>
+                <div class="habitat-placed-list" id="habitatPlaced-dry"></div>
               </div>
 
-              <!-- Ground Surface Layer (Cracks in Dry Mode / Wet Leaves in Moist Mode) -->
-              <div class="sim-surface-decor"></div>
-
-              <!-- DRY SOIL CREATURES (Visible in Sunny Mode) -->
-              <div class="sim-creatures-layer dry-creatures-layer" id="dryCreaturesLayer">
-                <button class="sim-creature-spot" style="top: 48%; left: 24%;" data-cid="black_beetle" onclick="observeSimCreature(this, 'black_beetle')">
-                  <span class="sim-c-avatar">
-                    <svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true">
-                      <g stroke="#212121" stroke-width="2.2" stroke-linecap="round">
-                        <line x1="5" y1="13" x2="12" y2="16"/><line x1="3" y1="20" x2="11" y2="20"/><line x1="5" y1="27" x2="12" y2="24"/>
-                        <line x1="31" y1="13" x2="24" y2="16"/><line x1="33" y1="20" x2="25" y2="20"/><line x1="31" y1="27" x2="24" y2="24"/>
-                        <path d="M15 8 Q12 3 9 5" fill="none"/><path d="M21 8 Q24 3 27 5" fill="none"/>
-                      </g>
-                      <ellipse cx="18" cy="10" rx="5" ry="3.8" fill="#212121"/>
-                      <ellipse cx="18" cy="21" rx="8" ry="10" fill="#37474f" stroke="#111" stroke-width="1.5"/>
-                      <line x1="18" y1="12" x2="18" y2="30" stroke="#90a4ae" stroke-width="1.3"/>
-                    </svg>
-                  </span>
-                  <span class="sim-c-name">შავი მიწის ხოჭო</span>
-                  <span class="sim-c-check"></span>
-                </button>
-
-                <button class="sim-creature-spot" style="top: 66%; left: 53%;" data-cid="field_beetle" onclick="observeSimCreature(this, 'field_beetle')">
-                  <span class="sim-c-avatar"><img src="ხოჭო.png" alt="მინდვრის ხოჭო" class="worm-photo-icon" /></span>
-                  <span class="sim-c-name">მინდვრის ხოჭო</span>
-                  <span class="sim-c-check"></span>
-                </button>
-
-                <button class="sim-creature-spot" style="top: 52%; left: 78%;" data-cid="ants_dry" onclick="observeSimCreature(this, 'ants_dry')">
-                  <span class="sim-c-avatar">🐜</span>
-                  <span class="sim-c-name">ჭიანჭველა</span>
-                  <span class="sim-c-check"></span>
-                </button>
+              <!-- Zone 2: Cool & Moist Soil -->
+              <div
+                class="habitat-zone zone-moist"
+                id="habitatZoneMoist"
+                onclick="placeInHabitatZone(this, 'moist')"
+                ondragover="allowHabitatDrop(event, this)"
+                ondragleave="leaveHabitatDrop(this)"
+                ondrop="dropOnHabitatZone(event, this, 'moist')"
+              >
+                <div class="habitat-zone-header">
+                  <span class="hz-weather-icon">🌧️</span>
+                  <div class="hz-title-box">
+                    <h3>გრილი და ნესტიანი ნიადაგი</h3>
+                    <span>სველი ფოთლები, ნესტიანი მიწა და გრილი სოროები</span>
+                  </div>
+                </div>
+                <div class="habitat-placed-list" id="habitatPlaced-moist"></div>
               </div>
+            </div>
 
-              <!-- MOIST SOIL CREATURES (Visible in Rainy Mode) -->
-              <div class="sim-creatures-layer moist-creatures-layer" id="moistCreaturesLayer">
-                <button class="sim-creature-spot" style="top: 38%; left: 20%;" data-cid="snail_moist" onclick="observeSimCreature(this, 'snail_moist')">
-                  <span class="sim-c-avatar">🐌</span>
-                  <span class="sim-c-name">ლოკოკინა</span>
-                  <span class="sim-c-check"></span>
-                </button>
-
-                <button class="sim-creature-spot" style="top: 72%; left: 28%;" data-cid="worm_moist" onclick="observeSimCreature(this, 'worm_moist')">
-                  <span class="sim-c-avatar"><img src="ჭიაყელა.jpg" alt="ჭიაყელა" class="worm-photo-icon" /></span>
-                  <span class="sim-c-name">წვიმის ჭია</span>
-                  <span class="sim-c-check"></span>
-                </button>
-
-                <button class="sim-creature-spot" style="top: 48%; left: 54%;" data-cid="hedgehog_moist" onclick="observeSimCreature(this, 'hedgehog_moist')">
-                  <span class="sim-c-avatar">🦔</span>
-                  <span class="sim-c-name">ზღარბი</span>
-                  <span class="sim-c-check"></span>
-                </button>
-
-                <button class="sim-creature-spot" style="top: 72%; left: 76%;" data-cid="mouse_moist" onclick="observeSimCreature(this, 'mouse_moist')">
-                  <span class="sim-c-avatar">🐭</span>
-                  <span class="sim-c-name">მინდვრის თაგვი</span>
-                  <span class="sim-c-check"></span>
-                </button>
-              </div>
+            <!-- Clean Explorer's Note on Last Selected/Sorted Creature -->
+            <div class="explorer-note-card" id="explorerNoteCard">
+              <div class="explorer-note-tag">📓 მკვლევრის ჩანაწერი</div>
+              <p id="sortFeedbackText">
+                აირჩიე ბინადარი ზედა ზოლიდან (ან გადაიტანე) და დააბრუნე თავის სახლში — <strong>☀️ მშრალ და ფხვიერ</strong> ან <strong>🌧️ გრილ და ნესტიან</strong> ნიადაგში!
+              </p>
             </div>
 
             <div class="stage-footer-nav">
